@@ -39,8 +39,10 @@ $(window).load(function()
 	{
 		'position': 'absolute',
 		'top'     : -10000,
-		'display' : ''
-	}).appendTo('body');
+		'display' : 'block',
+		'visibility': 'visible',
+		'opacity': 100
+	}).removeClass('fade').appendTo('body');
 	that.$h = that.$clone.height();//this.$element.height();
 	that.$w = that.$clone.width();//this.$element.width();
 	that.$clone.remove();
