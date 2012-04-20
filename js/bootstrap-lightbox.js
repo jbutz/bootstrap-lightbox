@@ -240,5 +240,5 @@ $(window).load(function()
       $target.lightbox(option)
     })
   })
-}
+})
 }( window.jQuery );
