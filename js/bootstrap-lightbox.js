@@ -38,7 +38,8 @@ $(window).load(function()
 	that.$clone = that.$element.filter(':first').clone().css(
 	{
 		'position': 'absolute',
-		'top'     : -10000
+		'top'     : -10000,
+		'display' : ''
 	}).appendTo('body');
 	that.$h = that.$clone.height();//this.$element.height();
 	that.$w = that.$clone.width();//this.$element.width();
