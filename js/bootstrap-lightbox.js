@@ -18,11 +18,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ========================================================= */
-
-!function( $ ){
-
 $(window).load(function()
 {
+!function( $ ){
+
+
   "use strict"
 
  /* LIGHTBOX CLASS DEFINITION
@@ -240,5 +240,6 @@ $(window).load(function()
       $target.lightbox(option)
     })
   })
-})
+
 }( window.jQuery );
+});
