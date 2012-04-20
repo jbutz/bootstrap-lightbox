@@ -1,6 +1,6 @@
 /*
 /* =========================================================
- * bootstrap-lightbox.js v0.1
+ * bootstrap-lightbox.js v0.2
  *
  * HEAVILY based off bootstrap-modal.js v2.0.2
  * =========================================================
@@ -18,9 +18,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ========================================================= */
-
-
+$(window).load(function()
+{
 !function( $ ){
+
 
   "use strict"
 
@@ -37,8 +38,11 @@
 	that.$clone = that.$element.filter(':first').clone().css(
 	{
 		'position': 'absolute',
-		'top'     : -10000
-	}).appendTo('body');
+		'top'     : -2000,
+		'display' : 'block',
+		'visibility': 'visible',
+		'opacity': 100
+	}).removeClass('fade').appendTo('body');
 	that.$h = that.$clone.height();//this.$element.height();
 	that.$w = that.$clone.width();//this.$element.width();
 	that.$clone.remove();
@@ -241,3 +245,4 @@
   })
 
 }( window.jQuery );
+});
