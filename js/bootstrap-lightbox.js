@@ -38,7 +38,7 @@ $(window).load(function()
 	that.$clone = that.$element.filter(':first').clone().css(
 	{
 		'position': 'absolute',
-		'top'     : -10000,
+		'top'     : -2000,
 		'display' : 'block',
 		'visibility': 'visible',
 		'opacity': 100
