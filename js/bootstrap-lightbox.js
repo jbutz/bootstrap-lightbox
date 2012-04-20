@@ -19,9 +19,10 @@
  * limitations under the License.
  * ========================================================= */
 
-
 !function( $ ){
 
+$(window).load(function()
+{
   "use strict"
 
  /* LIGHTBOX CLASS DEFINITION
@@ -239,5 +240,5 @@
       $target.lightbox(option)
     })
   })
-
+}
 }( window.jQuery );
