@@ -31,6 +31,23 @@
     this.options = options
     this.$element = $(content)
       .delegate('[data-dismiss="lightbox"]', 'click.dismiss.lightbox', $.proxy(this.hide, this))
+	//
+	var that = this;
+	// Clone the element
+	that.$clone = that.$element.filter(':first').clone().css(
+	{
+		'position': 'absolute',
+		'top'     : -10000
+	}).appendTo('body');
+	that.$h = that.$clone.height();//this.$element.height();
+	that.$w = that.$clone.width();//this.$element.width();
+	that.$clone.remove();
+	that.$element.css({
+		"position": "fixed",
+		"left": ( $(window).width()  / 2 ) - ( that.$w / 2 ),
+		"top":  ( $(window).height() / 2 ) - ( that.$h / 2 )
+	});
+	//
   }
 
   Lightbox.prototype = {
@@ -56,10 +73,19 @@
           var transition = $.support.transition && that.$element.hasClass('fade')
 
           !that.$element.parent().length && that.$element.appendTo(document.body) //don't move modals dom position
-
+			
           that.$element
             .show()
-
+			
+		//that.$h = that.$element.find('.lightbox-content').height();
+		//that.$w = that.$element.find('.lightbox-content').width();
+		//that.$element.css({
+		//	"position": "fixed",
+		//	"left": ( $(window).width()  / 2 ) - ( that.$w / 2 ),
+		//	"top":  ( $(window).height() / 2 ) - ( that.$h / 2 )
+		//});
+		
+		
           if (transition) {
             that.$element[0].offsetWidth // force reflow
           }
@@ -67,9 +93,11 @@
           that.$element.addClass('in')
 
           transition ?
-            that.$element.one($.support.transition.end, function () { that.$element.trigger('shown') }) :
-            that.$element.trigger('shown')
-
+            that.$element.one($.support.transition.end, function ()
+			{
+				
+				that.$element.trigger('shown')
+			}) : that.$element.trigger('shown')
         })
       }
 
