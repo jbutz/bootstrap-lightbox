@@ -46,11 +46,12 @@ $(window).load(function()
 	that.$h = that.$clone.height();//this.$element.height();
 	that.$w = that.$clone.width();//this.$element.width();
 	that.$clone.remove();
+	
 	that.$element.css({
 		"position": "fixed",
 		"left": ( $(window).width()  / 2 ) - ( that.$w / 2 ),
 		"top":  ( $(window).height() / 2 ) - ( that.$h / 2 )
-	});
+	});	
 	//
   }
 
@@ -83,13 +84,42 @@ $(window).load(function()
 			
 		//that.$h = that.$element.find('.lightbox-content').height();
 		//that.$w = that.$element.find('.lightbox-content').width();
-		//that.$element.css({
-		//	"position": "fixed",
-		//	"left": ( $(window).width()  / 2 ) - ( that.$w / 2 ),
-		//	"top":  ( $(window).height() / 2 ) - ( that.$h / 2 )
-		//});
+		var resizedOffs = 0;
+		if(that.options.resizetofit) {
+			var myImg = that.$element.find('img');
+			// Save original filesize
+			if(!$(myImg).data('osizew')) $(myImg).data('osizew', $(myImg).width());
+			if(!$(myImg).data('osizeh')) $(myImg).data('osizeh', $(myImg).height());
+			
+			var osizew = $(myImg).data('osizew');
+			var osizeh = $(myImg).data('osizeh');
+			
+			// Resize for window dimension < than image
+			// Reset previous any			
+			$(myImg).css('max-width', 'none');
+			$(myImg).css('max-height', 'none');
+			
+			var bW = osizew > $(window).width();
+			var bH = osizeh > $(window).height();
+			
+			if(bH || bW) {
+				var sOffs = 40; // STYLE ?
+				$(myImg).css('max-width', $(window).width() - sOffs);
+				$(myImg).css('max-height', $(window).height() - sOffs);
+				
+				that.$w = $(myImg).width();
+				that.$h = $(myImg).height();
+				
+				resizedOffs = 10;
+			}
+		}
 		
-		
+		that.$element.css({
+			"position": "fixed",
+			"left": ( $(window).width()  / 2 ) - ( that.$w / 2 ),
+			"top":  ( $(window).height() / 2 ) - ( that.$h / 2 ) - resizedOffs
+		});
+			
           if (transition) {
             that.$element[0].offsetWidth // force reflow
           }
@@ -107,7 +137,8 @@ $(window).load(function()
 
     , hide: function ( e ) {
         e && e.preventDefault()
-		if($(e.target).is('a')) return
+		
+		if(e && $(e.target).is('a')) return
         if (!this.isShown) return
 
         var that = this
@@ -225,6 +256,7 @@ $(window).load(function()
       backdrop: true
     , keyboard: true
     , show: true
+	, resizetofit: false
   }
 
   $.fn.lightbox.Constructor = Lightbox
