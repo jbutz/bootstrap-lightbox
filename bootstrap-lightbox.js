@@ -230,7 +230,7 @@ $(window).load(function()
     var that = this
     if (this.isShown && this.options.keyboard) {
       $(document).on('keyup.dismiss.lightbox', function ( e ) {
-        e.which == 27 && that.hide()
+        e.which == 27 && that.hide(e)
       })
     } else if (!this.isShown) {
       $(document).off('keyup.dismiss.lightbox')
