@@ -6,66 +6,154 @@
 	<title>Bootstrap - Lightbox by jbutz</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-lightbox.css">
-	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="css/pygment_trac.css">
 	<link rel="stylesheet" href="prettify/prettify.css">
+	<link rel="stylesheet" href="css/styles.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 </head>
-<body>
-	<div class="wrapper container">
-		<header>
-			<h1>Bootstrap - Lightbox</h1>
-			<p></p>
-			<p class="view"><a href="https://github.com/jbutz/bootstrap-lightbox">View the Project on GitHub <small>jbutz/bootstrap-lightbox</small></a></p>
-			<ul>
-				<li><a href="https://github.com/jbutz/bootstrap-lightbox/zipball/v0.2">Download <strong>ZIP File</strong></a></li>
-				<li><a href="https://github.com/jbutz/bootstrap-lightbox/tarball/v0.2">Download <strong>TAR Ball</strong></a></li>
-				<li><a href="https://github.com/jbutz/bootstrap-lightbox">Fork On <strong>GitHub</strong></a></li>
-			</ul>
-		</header>
-		<section>
-			<h2>Demo</h2>
+<body data-spy="scroll" data-target=".navbar">
+	<div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<ul class="nav">
+					<li class="active"><a href="#home">Home</a></li>
+					<li><a href="#demo">Demo</a></li>
+					<li><a href="#usage">Usage</a></li>
+					<li><a href="#bonus">Bonus</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- -->
+	<section id="home">
+		<div class="jumbotron masthead">
+			<div class="container">
+				<h1>Bootstrap Lightbox</h1>
+				<p>A simple lightbox plugin based on the bootstrap modal plugin.</p>
+				<p><a href="https://github.com/jbutz/bootstrap-lightbox/zipball/v0.3" class="btn btn-primary btn-large">Download Bootstrap Lightbox</a></p>
+				<ul class="masthead-links">
+					<li><a href="http://github.com/jbutz/bootstrap-lightbox">GitHub project</a></li>
+					<li>Version 0.3</li>
+				</ul>
+			</div>
+		</div>
+		<div class="social-btns">
+			<div class="container">
+				<ul class="social-links">
+					<li>
+						<iframe src="http://ghbtns.com/github-btn.html?user=jbutz&repo=bootstrap-lightbox&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+					</li>
+					<li>
+						<iframe src="http://ghbtns.com/github-btn.html?user=jbutz&repo=bootstrap-lightbox&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+					</li>
+					<li>
+						<iframe src="http://ghbtns.com/github-btn.html?user=jbutz&type=follow&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="165px" height="20px"></iframe>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section id="demo">
+		<div class="container">
+			<div class="page-header">
+				<h1>Demo <small>See it in action!</small></h1>
+			</div>
 			<p>Click the thumbnail below to open the lightbox.</p>
+
 			<!-- -->
-			<ul class="thumbnails">
-				<li class="span2">
-					<a data-toggle="lightbox" href="#demoLightbox" class="thumbnail">
-						<img src="img/small.png" alt="Click to view the lightbox">
-					</a>
-				</li>
-			</ul>
-			<div class="lightbox fade" id="demoLightbox" style="display: none;">
-				<div class='lightbox-content'>
-					<img src="img/large.png">
+			<div class="example">
+				<ul class="thumbnails">
+					<li class="span2">
+						<a data-toggle="lightbox" href="#demoLightbox" class="thumbnail">
+							<img src="img/small.png" alt="Click to view the lightbox">
+						</a>
+					</li>
+				</ul>
+				<div class="lightbox fade" id="demoLightbox" style="display: none;">
+					<div class='lightbox-content'>
+						<img src="img/large.png">
+					</div>
 				</div>
 			</div>
-		</section>
-		<section>
-			<h2>Code</h2>
-			<p>Below is the basic code required to use the lightbox. Having <code>fade</code> as part of the class will make use of Twitter Bootstrap Transitions (if you have them included) when displaying and hiding the lightbox.</p>
-			<p>For this to work you do need jQuery, like the rest of the Twitter Bootstrap plugins, and then all it takes is my the JavaScript and CSS files in my git repository.</p>
-			<pre class="prettyprint"><code>&lt;a data-toggle=&quot;lightbox&quot; href=&quot;#demoLightbox&quot;&gt;Open Lightbox&lt;/a&gt;
+			<!-- -->
+<pre class="prettyprint linenums">&lt;a data-toggle=&quot;lightbox&quot; href=&quot;#demoLightbox&quot;&gt;Open Lightbox&lt;/a&gt;
 &lt;div class=&quot;lightbox fade&quot; id=&quot;demoLightbox&quot; style=&quot;display: none;&quot;&gt;
 	&lt;div class='lightbox-content'&gt;
 		&lt;img src=&quot;image.png&quot;&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</pre>
 			<!-- -->
-		</section>
-		<section>
-			<h2>Bonus!</h2>
+		</div>
+	</section>
+	<section id="usage">
+		<div class="container">
+			<div class="page-header">
+				<h1>Usage <small>Oooh, what does this button do?</small></h1>
+			</div>
+			
+			<h3>Via data attributes</h3>
+			<p>All you need to do is add <code>data-toggle=&quot;lightbox&quot;</code> and <code>href=&quot;#lightbox&quot;</code> or <code>data-target=&quot;#lightbox&quot;</code> to a link, and set the <code>href</code> so it references the lightbox you want to display.</p>
+			<pre class="prettyprint linenums">&lt;a data-toggle=&quot;lightbox&quot; href=&quot;#demoLightbox&quot;&gt;Open Lightbox&lt;/a&gt;</pre>
+
+			<h3>Via JavaScript</h3>
+			<p>Open the lightbox with the id <code>myLightbox</code>.</p>
+			<pre class="prettyprint linenums">$('#myLightbox').lightbox(options)</pre>
+			
+			<h3>Options</h3>
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Default</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>backdrop</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>This adds a modal-backdrop element. While this technically can be turned off I wouldn't suggest it otherwise you won't be able to close the lightbox. This is something that will be fixed.</td>
+					</tr>
+					<tr>
+						<td>keyboard</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>This doesn't do anything yet, but it came with the modal code. This will do something in the future.</td>
+					</tr>
+					<tr>
+						<td>show</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>Shows the lightbox when initialized.<br><i>Note: This only applies when using JavaScript to setup the lightbox.</i></td>
+					</tr>
+					<tr>
+						<td>resizeToFit</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>This resizes the image to fit the window if the image is too large.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<section id="bonus">
+		<div class="container">
+			<div class="page-header">
+				<h1>Bonus!</h1>
+			</div>
 			<p>You can make use of the Twitter Bootstrap Carousel plugin inside the lightbox!</p>
-		</section>
-		<footer>
-			<p>This project is maintained by <a href="https://github.com/jbutz">jbutz</a></p>
-			<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-		</footer>
-	</div>
-	
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		</div>
+	</section>
+	<section style="margin-top: 50px; margin-bottom: 50px; height: 10px;">
+		<!-- Take up space -->
+	</section>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="js/scale.fix.js"></script>
 	<script src="prettify/prettify.js"></script>
 	<script src="js/bootstrap.min.js"></script>
