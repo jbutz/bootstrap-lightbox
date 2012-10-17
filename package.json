@@ -1,0 +1,24 @@
+{
+	"author": "Jason Butz (http://jasonbutz.info)",
+	"name": "bootstrap-lightbox",
+	"description": "A simple lightbox plugin based on the bootstrap modal plugin.",
+	"version": "0.0.3",
+	"homepage": "http://jbutz.github.com/bootstrap-lightbox/",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/jbutz/bootstrap-lightbox.git"
+	},
+	"scripts": {
+		"build": "./build/build.js",
+		"test": "vows"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"jshint":       "0.9.1",
+		"vows":         "0.6.2"
+	},
+	"optionalDependencies": {},
+	"engines": {
+		"node": "*"
+	}
+}
