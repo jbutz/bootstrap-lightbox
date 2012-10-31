@@ -238,13 +238,13 @@ Lightbox.prototype = {
 	centerImage: function()
 	{
 		var that = this;
-		// In the event the image is not loaded re-center everything once loaded
-		that.$h = that.$element.find('.lightbox-content').height();
-		that.$w = that.$element.find('.lightbox-content').width();
+		that.$h = that.$element.height();
+		that.$w = that.$element.width();
 		var resizedOffs = 0;
 		if(that.options.resizeToFit)
 		{
-			var myImg = that.$element.find('img:first');
+			resizedOffs = 10;
+			var myImg = that.$element.find('.lightbox-content').find('img:first');
 			// Save original filesize
 			if(!$(myImg).data('osizew')) $(myImg).data('osizew', $(myImg).width());
 			if(!$(myImg).data('osizeh')) $(myImg).data('osizeh', $(myImg).height());
@@ -257,20 +257,15 @@ Lightbox.prototype = {
 			$(myImg).css('max-width', 'none');
 			$(myImg).css('max-height', 'none');
 			
-			var bW = osizew > $(window).width();
-			var bH = osizeh > $(window).height();
+
+			var sOffs = 40; // STYLE ?
+			if(that.$element.find('.lightbox-header').length > 0)
+				sOffs += 10;
+			$(myImg).css('max-width', $(window).width() - sOffs);
+			$(myImg).css('max-height', $(window).height() - sOffs);
 			
-			if(bH || bW)
-			{
-				var sOffs = 40; // STYLE ?
-				$(myImg).css('max-width', $(window).width() - sOffs);
-				$(myImg).css('max-height', $(window).height() - sOffs);
-				
-				that.$w = $(myImg).width();
-				that.$h = $(myImg).height();
-				
-				resizedOffs = 10;
-			}
+			that.$w = $(myImg).width();
+			that.$h = $(myImg).height();
 		}
 
 		that.$element.css({

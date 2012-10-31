@@ -46,3 +46,16 @@
 	-moz-background-clip: padding-box;
 	background-clip: padding-box;
 }
+.lightbox-header .close {
+	color: white;
+	margin-right: -16px;
+	margin-top: -16px;
+	font-size: 2em;
+	opacity: .8;
+	filter: alpha(opacity=80);
+}
+
+.lightbox-header .close:hover {
+	opacity: .4;
+	filter: alpha(opacity=40);
+}
