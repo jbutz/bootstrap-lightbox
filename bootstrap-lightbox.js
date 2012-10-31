@@ -88,46 +88,8 @@ Lightbox.prototype = {
 			}
 
 			that.$element.show();
-
-			that.$h = that.$element.find('.lightbox-content').height();
-			that.$w = that.$element.find('.lightbox-content').width();
-			var resizedOffs = 0;
-			if(that.options.resizeToFit)
-			{
-				var myImg = that.$element.find('img:first');
-				// Save original filesize
-				if(!$(myImg).data('osizew')) $(myImg).data('osizew', $(myImg).width());
-				if(!$(myImg).data('osizeh')) $(myImg).data('osizeh', $(myImg).height());
-				
-				var osizew = $(myImg).data('osizew');
-				var osizeh = $(myImg).data('osizeh');
-				
-				// Resize for window dimension < than image
-				// Reset previous any			
-				$(myImg).css('max-width', 'none');
-				$(myImg).css('max-height', 'none');
-				
-				var bW = osizew > $(window).width();
-				var bH = osizeh > $(window).height();
-				
-				if(bH || bW)
-				{
-					var sOffs = 40; // STYLE ?
-					$(myImg).css('max-width', $(window).width() - sOffs);
-					$(myImg).css('max-height', $(window).height() - sOffs);
-					
-					that.$w = $(myImg).width();
-					that.$h = $(myImg).height();
-					
-					resizedOffs = 10;
-				}
-			}
-		
-			that.$element.css({
-				"position": "fixed",
-				"left": ( $(window).width()  / 2 ) - ( that.$w / 2 ),
-				"top":  ( $(window).height() / 2 ) - ( that.$h / 2 ) - resizedOffs
-			});
+			
+			that.centerImage();
 
 			if (transition)
 			{
@@ -144,8 +106,11 @@ Lightbox.prototype = {
 			transition ? 
 				that.$element.one($.support.transition.end, function () { that.$element.trigger('shown'); }) :
 				that.$element.trigger('shown');
-
-		});
+			});
+			that.$element.find('.lightbox-content').find('img').load(function()
+			{
+				that.centerImage();
+			});
 	},
 	hide: function ( e )
 	{
@@ -269,6 +234,50 @@ Lightbox.prototype = {
 		{
 			callback();
 		}
+	},
+	centerImage: function()
+	{
+		var that = this;
+		// In the event the image is not loaded re-center everything once loaded
+		that.$h = that.$element.find('.lightbox-content').height();
+		that.$w = that.$element.find('.lightbox-content').width();
+		var resizedOffs = 0;
+		if(that.options.resizeToFit)
+		{
+			var myImg = that.$element.find('img:first');
+			// Save original filesize
+			if(!$(myImg).data('osizew')) $(myImg).data('osizew', $(myImg).width());
+			if(!$(myImg).data('osizeh')) $(myImg).data('osizeh', $(myImg).height());
+			
+			var osizew = $(myImg).data('osizew');
+			var osizeh = $(myImg).data('osizeh');
+			
+			// Resize for window dimension < than image
+			// Reset previous any			
+			$(myImg).css('max-width', 'none');
+			$(myImg).css('max-height', 'none');
+			
+			var bW = osizew > $(window).width();
+			var bH = osizeh > $(window).height();
+			
+			if(bH || bW)
+			{
+				var sOffs = 40; // STYLE ?
+				$(myImg).css('max-width', $(window).width() - sOffs);
+				$(myImg).css('max-height', $(window).height() - sOffs);
+				
+				that.$w = $(myImg).width();
+				that.$h = $(myImg).height();
+				
+				resizedOffs = 10;
+			}
+		}
+
+		that.$element.css({
+			"position": "fixed",
+			"left": ( $(window).width()  / 2 ) - ( that.$w / 2 ),
+			"top":  ( $(window).height() / 2 ) - ( that.$h / 2 ) - resizedOffs
+		});
 	}
 };
 
