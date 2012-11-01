@@ -321,14 +321,11 @@ $(function ()
 
 		e.preventDefault();
 
+		var originalContent = null;
 		if(img)
 		{
-			var originalContent = $target.find('.lightbox-content').html();
+			originalContent = $target.find('.lightbox-content').html();
 			$target.find('.lightbox-content').empty().html('<img src="'+img+'" border="0" alt="" />');
-		}
-		else
-		{
-			var originalContent = undefined;
 		}
 
 
