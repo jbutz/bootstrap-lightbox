@@ -317,14 +317,31 @@ $(function ()
 		var $this = $(this), href;
 		var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')); //strip for ie7
 		var option = $target.data('lightbox') ? 'toggle' : $.extend({}, $target.data(), $this.data());
+		var img    = $this.attr('data-image') || undefined;
 
 		e.preventDefault();
+
+		if(img)
+		{
+			var originalContent = $target.find('.lightbox-content').html();
+			$target.find('.lightbox-content').empty().html('<img src="'+img+'" border="0" alt="" />');
+		}
+		else
+		{
+			var originalContent = undefined;
+		}
+
+
 
 		$target
 			.lightbox(option)
 			.one('hide', function ()
 			{
 				$this.focus();
+				if( originalContent )
+				{
+					$target.find('.lightbox-content').empty().html( originalContent );
+				}
 			});
 	});
 });
