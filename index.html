@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="chrome=1">
 	<title>Bootstrap - Lightbox by jbutz</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-lightbox.css">
 	<link rel="stylesheet" href="prettify/prettify.css">
 	<link rel="stylesheet" href="css/styles.css">
@@ -32,10 +32,10 @@
 			<div class="container">
 				<h1>Bootstrap Lightbox</h1>
 				<p>A simple lightbox plugin based on the bootstrap modal plugin.</p>
-				<p><a href="https://github.com/jbutz/bootstrap-lightbox/zipball/v0.3" class="btn btn-primary btn-large">Download Bootstrap Lightbox</a></p>
+				<p><a href="https://github.com/jbutz/bootstrap-lightbox/zipball/v0.4" class="btn btn-primary btn-large">Download Bootstrap Lightbox</a></p>
 				<ul class="masthead-links">
 					<li><a href="http://github.com/jbutz/bootstrap-lightbox">GitHub project</a></li>
-					<li>Version 0.3</li>
+					<li>Version 0.4</li>
 				</ul>
 			</div>
 		</div>
@@ -61,7 +61,7 @@
 			<div class="page-header">
 				<h1>Demo <small>See it in action!</small></h1>
 			</div>
-			<p>Click the thumbnail below to open the lightbox.</p>
+			<p>Click the thumbnail below to open the lightbox. This demo includes the optional <code>.lightbox-header</code> element, which adds a close button.</p>
 
 			<!-- -->
 			<div class="example">
@@ -72,15 +72,20 @@
 						</a>
 					</li>
 				</ul>
-				<div class="lightbox fade" id="demoLightbox" style="display: none;">
+				<div id="demoLightbox" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
+					<div class='lightbox-header'>
+						<button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
+					</div>
 					<div class='lightbox-content'>
 						<img src="img/large.png">
 					</div>
 				</div>
 			</div>
 			<!-- -->
-<pre class="prettyprint linenums">&lt;a data-toggle=&quot;lightbox&quot; href=&quot;#demoLightbox&quot;&gt;Open Lightbox&lt;/a&gt;
-&lt;div class=&quot;lightbox fade&quot; id=&quot;demoLightbox&quot; style=&quot;display: none;&quot;&gt;
+<pre class="prettyprint linenums">&lt;div id=&quot;demoLightbox&quot; class=&quot;lightbox hide fade&quot;  tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-hidden=&quot;true&quot;&gt;
+	&lt;div class='lightbox-header'&gt;
+		&lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;lightbox&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+	&lt;/div&gt;
 	&lt;div class='lightbox-content'&gt;
 		&lt;img src=&quot;image.png&quot;&gt;
 	&lt;/div&gt;
@@ -118,13 +123,13 @@
 						<td>backdrop</td>
 						<td>boolean</td>
 						<td>true</td>
-						<td>This adds a modal-backdrop element. While this technically can be turned off I wouldn't suggest it otherwise you won't be able to close the lightbox. This is something that will be fixed.</td>
+						<td>This adds a modal-backdrop element.</td>
 					</tr>
 					<tr>
 						<td>keyboard</td>
 						<td>boolean</td>
 						<td>true</td>
-						<td>This doesn't do anything yet, but it came with the modal code. This will do something in the future.</td>
+						<td>Pressing escape closes the lightbox.</td>
 					</tr>
 					<tr>
 						<td>show</td>
@@ -156,7 +161,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="js/scale.fix.js"></script>
 	<script src="prettify/prettify.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.1/bootstrap.min.js"></script>
 	<script src="js/bootstrap-lightbox.js"></script>
 	<script>
 	$(document).ready(function()

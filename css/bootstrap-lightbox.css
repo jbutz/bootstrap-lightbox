@@ -1,6 +1,6 @@
 /*
 /* =========================================================
- * bootstrap-lightbox.css v0.3
+ * bootstrap-lightbox.css v0.4
  *
  * =========================================================
  * Copyright 2012 Jason Butz
@@ -20,7 +20,6 @@
  
 .lightbox {
 	background-color: transparent;
-	display: block;
 	text-align: center;
 	line-height: 0;
 	z-index: 1050;
@@ -45,4 +44,24 @@
 	-webkit-background-clip: padding-box;
 	-moz-background-clip: padding-box;
 	background-clip: padding-box;
+}
+.lightbox-header .close {
+	color: white;
+	margin-right: -16px;
+	margin-top: -16px;
+	font-size: 2em;
+	opacity: .8;
+	filter: alpha(opacity=80);
+}
+
+.lightbox-header .close:hover {
+	opacity: .4;
+	filter: alpha(opacity=40);
+}
+
+.lightbox.hide {
+	display: none;
+}
+.lightbox.in {
+	display: block;
 }
