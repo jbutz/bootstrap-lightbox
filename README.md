@@ -25,3 +25,59 @@ Example
 	</div>
 </div>
 ```
+
+Usage
+-----------
+
+### Via data attributes ###
+
+All you need to do is add `data-toggle="lightbox"` and `href="#lightbox"` or `data-target="#lightbox"` to a link, and set the `href` so it references the lightbox you want to display.
+```html
+<a data-toggle="lightbox" href="#demoLightbox">Open Lightbox</a>
+```
+
+### Via JavaScript ###
+
+Open the lightbox with the id `myLightbox`.
+```javascript
+$('#myLightbox').lightbox(options)
+```
+
+### Options ###
+
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Default</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>backdrop</td>
+			<td>boolean</td>
+			<td>true</td>
+			<td>This adds a modal-backdrop element.</td>
+		</tr>
+		<tr>
+			<td>keyboard</td>
+			<td>boolean</td>
+			<td>true</td>
+			<td>Pressing escape closes the lightbox.</td>
+		</tr>
+		<tr>
+			<td>show</td>
+			<td>boolean</td>
+			<td>true</td>
+			<td>Shows the lightbox when initialized.<br><i>Note: This only applies when using JavaScript to setup the lightbox.</i></td>
+		</tr>
+		<tr>
+			<td>resizeToFit</td>
+			<td>boolean</td>
+			<td>true</td>
+			<td>This resizes the image to fit the window if the image is too large.</td>
+		</tr>
+	</tbody>
+</table>
