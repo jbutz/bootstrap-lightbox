@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="page-header">
+		<h1>Demo <small>See it in action!</small></h1>
+	</div>
+	<p>Click the thumbnail below to open the lightbox. This demo includes the optional <code>.lightbox-header</code> element, which adds a close button.</p>
+
+	<!-- -->
+	<div class="example">
+		<ul class="thumbnails">
+			<li class="span2">
+				<a data-toggle="lightbox" href="#demoLightbox" class="thumbnail">
+					<img src="assets/img/small.png" alt="Click to view the lightbox">
+				</a>
+			</li>
+		</ul>
+		<div id="demoLightbox" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
+			<div class='lightbox-header'>
+				<button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
+			</div>
+			<div class='lightbox-content'>
+				<img src="assets/img/large.png">
+			</div>
+		</div>
+	</div>
+	<!-- -->
+<pre class="prettyprint linenums">&lt;div id=&quot;demoLightbox&quot; class=&quot;lightbox hide fade&quot;  tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-hidden=&quot;true&quot;&gt;
+	&lt;div class='lightbox-header'&gt;
+		&lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;lightbox&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class='lightbox-content'&gt;
+		&lt;img src=&quot;image.png&quot;&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+	<!-- -->
+</div>
