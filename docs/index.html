@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Bootstrap - Lightbox</title>
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap-lightbox.min.css">
+	<link rel="stylesheet" href="assets/prettify/prettify.css">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body data-spy="scroll" data-target=".navbar">
+	<div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<ul class="nav">
+					<li class="active"><a href="#home">Home</a></li>
+					<li><a href="#demo">Demo</a></li>
+					<li><a href="#usage">Usage</a></li>
+					<li><a href="#bonus">Bonus</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- -->
+	<section id="home">
+<div class="jumbotron masthead">
+	<div class="container">
+		<h1>Bootstrap Lightbox</h1>
+		<p>A simple lightbox plugin based on the bootstrap modal plugin.</p>
+		<p><a href="https://github.com/downloads/jbutz/bootstrap-lightbox/bootstrap-lightbox-v0.4.1.zip" class="btn btn-primary btn-large">Download Bootstrap Lightbox</a></p>
+		<ul class="masthead-links">
+			<li><a href="http://github.com/jbutz/bootstrap-lightbox">GitHub project</a></li>
+			<li>Version 0.4.1</li>
+		</ul>
+	</div>
+</div>
+<div class="social-btns">
+	<div class="container">
+		<ul class="social-links">
+			<li>
+				<iframe src="http://ghbtns.com/github-btn.html?user=jbutz&repo=bootstrap-lightbox&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+			</li>
+			<li>
+				<iframe src="http://ghbtns.com/github-btn.html?user=jbutz&repo=bootstrap-lightbox&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+			</li>
+			<li>
+				<iframe src="http://ghbtns.com/github-btn.html?user=jbutz&type=follow&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="165px" height="20px"></iframe>
+			</li>
+		</ul>
+	</div>
+</div>	</section>
+
+	<section id="demo">
+<div class="container">
+	<div class="page-header">
+		<h1>Demo <small>See it in action!</small></h1>
+	</div>
+	<p>Click the thumbnail below to open the lightbox. This demo includes the optional <code>.lightbox-header</code> element, which adds a close button.</p>
+
+	<!-- -->
+	<div class="example">
+		<ul class="thumbnails">
+			<li class="span2">
+				<a data-toggle="lightbox" href="#demoLightbox" class="thumbnail">
+					<img src="assets/img/small.png" alt="Click to view the lightbox">
+				</a>
+			</li>
+		</ul>
+		<div id="demoLightbox" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
+			<div class='lightbox-header'>
+				<button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
+			</div>
+			<div class='lightbox-content'>
+				<img src="assets/img/large.png">
+			</div>
+		</div>
+	</div>
+	<!-- -->
+<pre class="prettyprint linenums">&lt;div id=&quot;demoLightbox&quot; class=&quot;lightbox hide fade&quot;  tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-hidden=&quot;true&quot;&gt;
+	&lt;div class='lightbox-header'&gt;
+		&lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;lightbox&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class='lightbox-content'&gt;
+		&lt;img src=&quot;image.png&quot;&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+	<!-- -->
+</div>	</section>
+	<section id="usage">
+<div class="container">
+	<div class="page-header">
+		<h1>Usage <small>Oooh, what does this button do?</small></h1>
+	</div>
+	
+	<h3>Via data attributes</h3>
+	<p>All you need to do is add <code>data-toggle=&quot;lightbox&quot;</code> and <code>href=&quot;#lightbox&quot;</code> or <code>data-target=&quot;#lightbox&quot;</code> to a link, and set the <code>href</code> so it references the lightbox you want to display.</p>
+	<pre class="prettyprint linenums">&lt;a data-toggle=&quot;lightbox&quot; href=&quot;#demoLightbox&quot;&gt;Open Lightbox&lt;/a&gt;</pre>
+
+	<h3>Via JavaScript</h3>
+	<p>Open the lightbox with the id <code>myLightbox</code>.</p>
+	<pre class="prettyprint linenums">$('#myLightbox').lightbox(options)</pre>
+	
+	<h3>Options</h3>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Default</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>backdrop</td>
+				<td>boolean</td>
+				<td>true</td>
+				<td>This adds a modal-backdrop element.</td>
+			</tr>
+			<tr>
+				<td>keyboard</td>
+				<td>boolean</td>
+				<td>true</td>
+				<td>Pressing escape closes the lightbox.</td>
+			</tr>
+			<tr>
+				<td>show</td>
+				<td>boolean</td>
+				<td>true</td>
+				<td>Shows the lightbox when initialized.<br><i>Note: This only applies when using JavaScript to setup the lightbox.</i></td>
+			</tr>
+			<tr>
+				<td>resizeToFit</td>
+				<td>boolean</td>
+				<td>true</td>
+				<td>This resizes the image to fit the window if the image is too large.</td>
+			</tr>
+		</tbody>
+	</table>
+</div>	</section>
+	<section id="bonus">
+<div class="container">
+	<div class="page-header">
+		<h1>Bonus!</h1>
+	</div>
+	<p>You can make use of the Twitter Bootstrap Carousel plugin inside the lightbox!</p>
+</div>	</section>
+	<section style="margin-top: 50px; margin-bottom: 50px; height: 10px;">
+		<!-- Take up space -->
+	</section>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="assets/js/scale.fix.js"></script>
+	<script src="assets/prettify/prettify.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.1/bootstrap.min.js"></script>
+	<script src="assets/js/bootstrap-lightbox.min.js"></script>
+	<script>
+	$(document).ready(function()
+	{
+		prettyPrint();
+	});
+	</script>
+</body>
+</html>

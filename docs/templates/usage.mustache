@@ -1,0 +1,51 @@
+<div class="container">
+	<div class="page-header">
+		<h1>Usage <small>Oooh, what does this button do?</small></h1>
+	</div>
+	
+	<h3>Via data attributes</h3>
+	<p>All you need to do is add <code>data-toggle=&quot;lightbox&quot;</code> and <code>href=&quot;#lightbox&quot;</code> or <code>data-target=&quot;#lightbox&quot;</code> to a link, and set the <code>href</code> so it references the lightbox you want to display.</p>
+	<pre class="prettyprint linenums">&lt;a data-toggle=&quot;lightbox&quot; href=&quot;#demoLightbox&quot;&gt;Open Lightbox&lt;/a&gt;</pre>
+
+	<h3>Via JavaScript</h3>
+	<p>Open the lightbox with the id <code>myLightbox</code>.</p>
+	<pre class="prettyprint linenums">$('#myLightbox').lightbox(options)</pre>
+	
+	<h3>Options</h3>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Default</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>backdrop</td>
+				<td>boolean</td>
+				<td>true</td>
+				<td>This adds a modal-backdrop element.</td>
+			</tr>
+			<tr>
+				<td>keyboard</td>
+				<td>boolean</td>
+				<td>true</td>
+				<td>Pressing escape closes the lightbox.</td>
+			</tr>
+			<tr>
+				<td>show</td>
+				<td>boolean</td>
+				<td>true</td>
+				<td>Shows the lightbox when initialized.<br><i>Note: This only applies when using JavaScript to setup the lightbox.</i></td>
+			</tr>
+			<tr>
+				<td>resizeToFit</td>
+				<td>boolean</td>
+				<td>true</td>
+				<td>This resizes the image to fit the window if the image is too large.</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

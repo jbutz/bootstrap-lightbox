@@ -4,3 +4,5 @@ node_modules
 .DS_STORE
 .htaccess
 test.html
+bootstrap-lightbox/
+bootstrap-lightbox-v*.zip

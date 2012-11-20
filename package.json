@@ -2,7 +2,7 @@
 	"author": "Jason Butz (http://jasonbutz.info)",
 	"name": "bootstrap-lightbox",
 	"description": "A simple lightbox plugin based on the bootstrap modal plugin.",
-	"version": "0.0.4",
+	"version": "0.4.1",
 	"homepage": "http://jbutz.github.com/bootstrap-lightbox/",
 	"repository": {
 		"type": "git",
@@ -14,8 +14,14 @@
 	},
 	"dependencies": {},
 	"devDependencies": {
-		"jshint":       "0.9.1",
-		"vows":         "0.6.2"
+		"jshint":              "0.9.1",
+		"vows":                "0.6.2",
+		"grunt":		       "0.3.16",
+		"grunt-contrib-less":  "0.3.2",
+		"grunt-contrib-clean": "0.3.1",
+		"grunt-vows-test":     "0.1.0",
+		"grunt-contrib-copy":  "0.3.2",
+		"grunt-exec":          "0.3.0"
 	},
 	"optionalDependencies": {},
 	"engines": {
