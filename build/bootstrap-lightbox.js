@@ -1,5 +1,5 @@
 /*!=========================================================
-* bootstrap-lightbox v0.4.1 - 11/20/2012
+* bootstrap-lightbox v0.4.1 - 11/29/2012
 * http://jbutz.github.com/bootstrap-lightbox/
 * HEAVILY based off bootstrap-modal.js
 * ==========================================================

@@ -9,19 +9,18 @@
 		"url": "git://github.com/jbutz/bootstrap-lightbox.git"
 	},
 	"scripts": {
-		"build": "./build/build.js",
-		"test": "vows"
+		"build": "./build/index.js",
+		"test" : "./test/index.js"
 	},
 	"dependencies": {},
 	"devDependencies": {
-		"jshint":              "0.9.1",
-		"vows":                "0.6.2",
-		"grunt":		       "0.3.16",
-		"grunt-contrib-less":  "0.3.2",
-		"grunt-contrib-clean": "0.3.1",
-		"grunt-vows-test":     "0.1.0",
-		"grunt-contrib-copy":  "0.3.2",
-		"grunt-exec":          "0.3.0"
+		"jshint":              "latest",
+		"phantomjs":           "latest",
+		"grunt":		       "latest",
+		"grunt-contrib-less":  "latest",
+		"grunt-contrib-clean": "latest",
+		"grunt-contrib-copy":  "latest",
+		"grunt-exec":          "latest"
 	},
 	"optionalDependencies": {},
 	"engines": {

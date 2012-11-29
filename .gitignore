@@ -6,3 +6,5 @@ node_modules
 test.html
 bootstrap-lightbox/
 bootstrap-lightbox-v*.zip
+build/*.less
+test/*.htm

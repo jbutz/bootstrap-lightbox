@@ -1,0 +1,9 @@
+{
+	"validthis": true,
+	"laxbreak" : true,
+	"browser"  : true,
+	"eqnull"   : true,
+	"boss"     : true,
+	"expr"     : true,
+	"asi"      : true
+}

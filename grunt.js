@@ -86,9 +86,6 @@ module.exports = function(grunt)
 				"build/bootstrap-lightbox.less"
 			]
 		},
-		vows: {
-			files: 'test/*.js'
-		},
 		copy: {
 			dist: {
 				files: {
@@ -104,19 +101,25 @@ module.exports = function(grunt)
 			build_docs: {
 				command: 'node docs/build'
 			}
+		},
+		qunit: {
+			all: [
+				'test/**.html'
+			]
 		}
 	});
 
 	
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-vows-test');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-exec');
 
 	// Default task.
-	grunt.registerTask('default', 'vows lint concat min less copy clean');
+	grunt.registerTask('default', 'qunit lint concat min less copy');
 
 	grunt.registerTask('docs', 'exec:docs_dep exec:build_docs');
+
+	grunt.registerTask('test', 'qunit lint');
 
 };
