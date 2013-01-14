@@ -237,10 +237,15 @@
 				$img.css('max-height', 'none');
 				
 
-				var sOffs = 40; // STYLE ?
-				if(that.$element.find('.lightbox-header').length > 0) sOffs += 10;
-				$img.css('max-width', $(window).width() - sOffs);
-				$img.css('max-height', $(window).height() - sOffs);
+				var wOffs = 50; // STYLE ?
+				var hOffs = 40; // STYLE ?
+				if(that.$element.find('.lightbox-header').length > 0)
+				{
+					wOffs += 40;
+					hOffs += 10;
+				}
+				$img.css('max-width', $(window).width() - wOffs);
+				$img.css('max-height', $(window).height() - hOffs);
 				
 				that.w = $img.width();
 				that.h = $img.height();

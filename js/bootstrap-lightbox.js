@@ -233,7 +233,6 @@
 				
 				that.w = $img.width();
 				that.h = $img.height();
-				console.log(that.w, that.h);
 			}
 
 			that.$element.css({
