@@ -131,14 +131,14 @@
 			var that = this;
 			if (this.isShown && this.options.keyboard)
 			{
-				this.$element.on('keyup.dismiss.lightbox', function ( e )
+				this.$element.on('keypress.dismiss.lightbox, keyup.dismiss.lightbox', function ( e )
 				{
 					e.which == 27 && that.hide();
 				});
 			}
 			else if (!this.isShown)
 			{
-				this.$element.off('keyup.dismiss.lightbox');
+				this.$element.off('keypress.dismiss.lightbox, keyup.dismiss.lightbox');
 			}
 		},
 		hideWithTransition: function ()
