@@ -1,9 +1,9 @@
 /*!=========================================================
-* bootstrap-lightbox v0.4.1 - 11/29/2012
+* bootstrap-lightbox v0.4.1 - 1/14/2013
 * http://jbutz.github.com/bootstrap-lightbox/
 * HEAVILY based off bootstrap-modal.js
 * ==========================================================
-* Copyright (c) 2012 Jason Butz (http://jasonbutz.info)
+* Copyright (c) 2013 Jason Butz (http://jasonbutz.info)
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.

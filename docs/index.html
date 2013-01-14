@@ -77,6 +77,7 @@
 			</div>
 			<div class='lightbox-content'>
 				<img src="assets/img/large.png">
+				<div class="lightbox-caption"><p>Your caption here</p></div>
 			</div>
 		</div>
 	</div>
@@ -149,7 +150,29 @@
 	<div class="page-header">
 		<h1>Bonus!</h1>
 	</div>
-	<p>You can make use of the Twitter Bootstrap Carousel plugin inside the lightbox!</p>
+	<p>You can make use of the Twitter Bootstrap Carousel plugin <a data-toggle="lightbox" href="#demoLightboxCarousel">inside the lightbox!</a></p>
+	<div id="demoLightboxCarousel" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
+		 <div class='lightbox-header'>
+			<button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
+		</div>
+		<div class='lightbox-content'>
+			<!-- <img src="http://jbutz.github.com/bootstrap-lightbox/assets/img/large.png">  -->
+			<div id="myCarousel" class="carousel slide">
+				<!-- Carousel items -->
+				<div class="carousel-inner">
+					<div class="active item"><img src="http://jbutz.github.com/bootstrap-lightbox/assets/img/large.png"></div>
+					<div class="item"><img src="http://jbutz.github.com/bootstrap-lightbox/assets/img/large.png"></div>
+					<div class="item"><img src="http://jbutz.github.com/bootstrap-lightbox/assets/img/large.png"></div>
+				</div>
+				<!-- Carousel nav -->
+				<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+				<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+			</div>
+		</div>
+	</div>
+	<script>
+	$('.carousel').carousel();
+	</script>
 </div>	</section>
 	<section style="margin-top: 50px; margin-bottom: 50px; height: 10px;">
 		<!-- Take up space -->

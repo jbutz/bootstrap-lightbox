@@ -1,9 +1,9 @@
 /*!=========================================================
-* bootstrap-lightbox v0.4.1 - 11/29/2012
+* bootstrap-lightbox v0.4.1 - 1/14/2013
 * http://jbutz.github.com/bootstrap-lightbox/
 * HEAVILY based off bootstrap-modal.js
 * ==========================================================
-* Copyright (c) 2012 Jason Butz (http://jasonbutz.info)
+* Copyright (c) 2013 Jason Butz (http://jasonbutz.info)
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -50,6 +50,21 @@
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
+}
+.lightbox-content .lightbox-caption {
+  padding: 2%;
+  position: absolute;
+  left: 11px;
+  right: 12px;
+  bottom: 11px;
+  background: #000;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-align: center;
+  text-shadow: 0 -1px 0 #000000;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  line-height: 18px;
 }
 .lightbox-header .close {
   color: white;
