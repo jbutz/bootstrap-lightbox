@@ -228,6 +228,10 @@
 					wOffs += 40;
 					hOffs += 10;
 				}
+				if (that.$element.find('.lightbox-footer').length > 0) {
+					hOffs += that.$element.find('.lightbox-footer').height();
+					hOffs += 10;
+				}
 				$img.css('max-width', $(window).width() - wOffs);
 				$img.css('max-height', $(window).height() - hOffs);
 				

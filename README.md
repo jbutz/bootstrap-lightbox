@@ -23,6 +23,9 @@ Example
 	<div class='lightbox-content'>
 		<img src="image.png">
 	</div>
+	<div class='lightbox-footer'>
+		<button class="btn btn-small btn-primary">Click</button>
+	</div>
 </div>
 ```
 
