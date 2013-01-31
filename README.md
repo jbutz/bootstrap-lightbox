@@ -7,7 +7,7 @@ This is a plugin for Twitter Bootstrap that adds a lightbox that is based off th
 Quick start
 -----------
 
-You have several options. You can clone the repository `git clone git://github.com/jbutz/bootstrap-lightbox.git`, grab an [archive](https://github.com/jbutz/bootstrap-lightbox/downloads), or use [cdnjs](http://cdnjs.com/#bootstrap-lightbox).
+You have several options. You can clone the repository `git clone git://github.com/jbutz/bootstrap-lightbox.git`, grab an [archive](https://github.com/jbutz/bootstrap-lightbox/tags), or use [cdnjs](http://cdnjs.com/#bootstrap-lightbox).
 
 Once you have the files include the CSS and JavaScript files in your page and then give the example code below a shot.
 
