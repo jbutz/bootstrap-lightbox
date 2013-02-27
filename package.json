@@ -16,11 +16,13 @@
 	"devDependencies": {
 		"jshint":              "latest",
 		"phantomjs":           "latest",
-		"grunt":		       "latest",
+		"grunt":		           "latest",
 		"grunt-contrib-less":  "latest",
 		"grunt-contrib-clean": "latest",
 		"grunt-contrib-copy":  "latest",
-		"grunt-exec":          "latest"
+		"grunt-exec":          "latest",
+		"grunt-contrib-qunit": "latest",
+		"grunt-contrib-jshint":"latest"
 	},
 	"optionalDependencies": {},
 	"engines": {
