@@ -5,7 +5,7 @@
 
 !function ($) {
 	// browser:true, jquery:true, node:true, laxbreak:true
-	"use strict"; // jshint ;_;
+	"use strict";
 
 
 /* LIGHTBOX CLASS DEFINITION

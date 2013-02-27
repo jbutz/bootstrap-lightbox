@@ -17,13 +17,15 @@
 		"jshint":              "latest",
 		"phantomjs":           "latest",
 		"grunt":		           "latest",
+		"grunt-init":          "latest",
+		"grunt-contrib-concat":"latest",
 		"grunt-contrib-less":  "latest",
 		"grunt-contrib-clean": "latest",
 		"grunt-contrib-copy":  "latest",
+		"grunt-contrib-uglify":  "latest",
 		"grunt-exec":          "latest",
 		"grunt-contrib-qunit": "latest",
-		"grunt-contrib-jshint":"latest",
-		"grunt-jslint":        "latest"
+		"grunt-contrib-jshint":"latest"
 	},
 	"optionalDependencies": {},
 	"engines": {

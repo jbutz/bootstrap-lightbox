@@ -1,5 +1,5 @@
 /*!=========================================================
-* bootstrap-lightbox v0.5 - 1/14/2013
+* bootstrap-lightbox v0.5.0 - 2/27/2013
 * http://jbutz.github.com/bootstrap-lightbox/
 * HEAVILY based off bootstrap-modal.js
 * ==========================================================
@@ -17,11 +17,9 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 * ========================================================= */
-
-
 !function ($) {
 	// browser:true, jquery:true, node:true, laxbreak:true
-	"use strict"; // jshint ;_;
+	"use strict";
 
 
 /* LIGHTBOX CLASS DEFINITION
@@ -242,6 +240,10 @@
 				if(that.$element.find('.lightbox-header').length > 0)
 				{
 					wOffs += 40;
+					hOffs += 10;
+				}
+				if (that.$element.find('.lightbox-footer').length > 0) {
+					hOffs += that.$element.find('.lightbox-footer').height();
 					hOffs += 10;
 				}
 				$img.css('max-width', $(window).width() - wOffs);
