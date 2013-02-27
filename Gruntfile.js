@@ -23,8 +23,8 @@ module.exports = function(grunt)
 					  '* limitations under the License.\n' +
 					  '* ========================================================= */\n'
 		},
-		lint: {
-			all: ['js/*.js']
+		jslint: {
+			files: ['js/*.js']
 		},
 		jshint: {
 			options: {
@@ -116,9 +116,11 @@ module.exports = function(grunt)
 	grunt.loadNpmTasks('grunt-contrib-qunit');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-exec');
+	grunt.loadNpmTasks('grunt-jslint');
 
 	// Default task.
-	grunt.registerTask('default', 'qunit lint concat min less copy');
+	grunt.registerTask('default', 'qunit jslint concat min less copy');
+	//grunt.registerTask('default', 'qunit lint concat min less copy');
 
 	grunt.registerTask('docs', 'exec:docs_dep exec:build_docs');
 

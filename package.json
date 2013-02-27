@@ -22,7 +22,8 @@
 		"grunt-contrib-copy":  "latest",
 		"grunt-exec":          "latest",
 		"grunt-contrib-qunit": "latest",
-		"grunt-contrib-jshint":"latest"
+		"grunt-contrib-jshint":"latest",
+		"grunt-jslint":        "latest"
 	},
 	"optionalDependencies": {},
 	"engines": {
