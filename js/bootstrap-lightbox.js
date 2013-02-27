@@ -202,41 +202,43 @@
 
 			that.h = that.$element.height();
 			that.w = that.$element.width();
-			
+
 			if(that.options.resizeToFit)
 			{
-				
-				resizedOffs = 10;
 				$img = that.$element.find('.lightbox-content').find('img:first');
-				// Save original filesize
-				if(!$img.data('osizew')) $img.data('osizew', $img.width());
-				if(!$img.data('osizeh')) $img.data('osizeh', $img.height());
-				
-				var osizew = $img.data('osizew');
-				var osizeh = $img.data('osizeh');
-				
-				// Resize for window dimension < than image
-				// Reset previous
-				$img.css('max-width', 'none');
-				$img.css('max-height', 'none');
-				
-
-				var wOffs = 50; // STYLE ?
-				var hOffs = 40; // STYLE ?
-				if(that.$element.find('.lightbox-header').length > 0)
+				if ($img.length)
 				{
-					wOffs += 40;
-					hOffs += 10;
+					resizedOffs = 10;
+					// Save original filesize
+					if(!$img.data('osizew')) $img.data('osizew', $img.width());
+					if(!$img.data('osizeh')) $img.data('osizeh', $img.height());
+					
+					var osizew = $img.data('osizew');
+					var osizeh = $img.data('osizeh');
+					
+					// Resize for window dimension < than image
+					// Reset previous
+					$img.css('max-width', 'none');
+					$img.css('max-height', 'none');
+					
+
+					var wOffs = 50; // STYLE ?
+					var hOffs = 40; // STYLE ?
+					if(that.$element.find('.lightbox-header').length > 0)
+					{
+						wOffs += 40;
+						hOffs += 10;
+					}
+					if (that.$element.find('.lightbox-footer').length > 0) {
+						hOffs += that.$element.find('.lightbox-footer').height();
+						hOffs += 10;
+					}
+					$img.css('max-width', $(window).width() - wOffs);
+					$img.css('max-height', $(window).height() - hOffs);
+					
+					that.w = $img.width();
+					that.h = $img.height();
 				}
-				if (that.$element.find('.lightbox-footer').length > 0) {
-					hOffs += that.$element.find('.lightbox-footer').height();
-					hOffs += 10;
-				}
-				$img.css('max-width', $(window).width() - wOffs);
-				$img.css('max-height', $(window).height() - hOffs);
-				
-				that.w = $img.width();
-				that.h = $img.height();
 			}
 
 			that.$element.css({
