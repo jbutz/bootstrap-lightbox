@@ -5,7 +5,7 @@
 
 !function ($) {
 	// browser:true, jquery:true, node:true, laxbreak:true
-	"use strict";
+	"use strict"; // jshint ;_;
 
 
 /* LIGHTBOX CLASS DEFINITION
@@ -81,23 +81,23 @@
 
 			e = $.Event('hide');
 
-			this.$element.trigger(e);
+			that.$element.trigger(e);
 
-			if (!this.isShown || e.isDefaultPrevented()) return;
+			if (!that.isShown || e.isDefaultPrevented()) return;
 
-			this.isShown = false;
+			that.isShown = false;
 
-			this.escape();
+			that.escape();
 
 			$(document).off('focusin.lightbox');
 
-			this.$element
+			that.$element
 				.removeClass('in')
 				.attr('aria-hidden', true);
 
-			$.support.transition && this.$element.hasClass('fade') ?
-				this.hideWithTransition() :
-				this.hideLightbox();
+			$.support.transition && that.$element.hasClass('fade') ?
+				that.hideWithTransition() :
+				that.hideLightbox();
 		},
 		enforceFocus: function ()
 		{
@@ -140,7 +140,7 @@
 				that.hideLightbox();
 			});
 		},
-		hideLightbox: function (that)
+		hideLightbox: function ()
 		{
 			this.$element
 				.hide()
@@ -156,16 +156,16 @@
 		backdrop: function (callback)
 		{
 			var that   = this;
-			var animate = this.$element.hasClass('fade') ? 'fade' : '';
+			var animate = that.$element.hasClass('fade') ? 'fade' : '';
 
-			if (this.isShown && this.options.backdrop)
+			if (that.isShown && that.options.backdrop)
 			{
 				var doAnimate = $.support.transition && animate;
 
-				this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
+				that.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
 					.appendTo(document.body);
 
-				this.$backdrop.click(
+				that.$backdrop.click(
 					this.options.backdrop == 'static' ?
 						$.proxy(this.$element[0].focus, this.$element[0]) :
 						$.proxy(this.hide, this)
@@ -202,43 +202,34 @@
 
 			that.h = that.$element.height();
 			that.w = that.$element.width();
-
+			
 			if(that.options.resizeToFit)
 			{
+				
+				resizedOffs = 10;
 				$img = that.$element.find('.lightbox-content').find('img:first');
-				if ($img.length)
-				{
-					resizedOffs = 10;
-					// Save original filesize
-					if(!$img.data('osizew')) $img.data('osizew', $img.width());
-					if(!$img.data('osizeh')) $img.data('osizeh', $img.height());
-					
-					var osizew = $img.data('osizew');
-					var osizeh = $img.data('osizeh');
-					
-					// Resize for window dimension < than image
-					// Reset previous
-					$img.css('max-width', 'none');
-					$img.css('max-height', 'none');
-					
+				// Save original filesize
+				if(!$img.data('osizew')) $img.data('osizew', $img.width());
+				if(!$img.data('osizeh')) $img.data('osizeh', $img.height());
+				
+				// Resize for window dimension < than image
+				// Reset previous
+				$img.css('max-width', 'none');
+				$img.css('max-height', 'none');
+				
 
-					var wOffs = 50; // STYLE ?
-					var hOffs = 40; // STYLE ?
-					if(that.$element.find('.lightbox-header').length > 0)
-					{
-						wOffs += 40;
-						hOffs += 10;
-					}
-					if (that.$element.find('.lightbox-footer').length > 0) {
-						hOffs += that.$element.find('.lightbox-footer').height();
-						hOffs += 10;
-					}
-					$img.css('max-width', $(window).width() - wOffs);
-					$img.css('max-height', $(window).height() - hOffs);
-					
-					that.w = $img.width();
-					that.h = $img.height();
+				var wOffs = 50; // STYLE ?
+				var hOffs = 40; // STYLE ?
+				if(that.$element.find('.lightbox-header').length > 0)
+				{
+					wOffs += 40;
+					hOffs += 10;
 				}
+				$img.css('max-width', $(window).width() - wOffs);
+				$img.css('max-height', $(window).height() - hOffs);
+				
+				that.w = $img.width();
+				that.h = $img.height();
 			}
 
 			that.$element.css({
@@ -319,7 +310,6 @@
 		var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))); //strip for ie7
 		var option = $target.data('lightbox') ? 'toggle' : $.extend({ remote:!/#/.test(href) && href }, $target.data(), $this.data());
 		var img    = $this.attr('data-image') || false;
-		var $imgElem;
 
 		e.preventDefault();
 
