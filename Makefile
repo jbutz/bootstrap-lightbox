@@ -21,9 +21,16 @@ build:
 	@node docs/build
 	@cp js/*.js docs/assets/js/
 	@cp js/tests/vendor/jquery.js docs/assets/js/
+	@cp js/tests/vendor/bootstrap.js docs/assets/js/
+	@cp js/tests/vendor/*.css docs/assets/css/
+
+	@./node_modules/.bin/uglifyjs -nc docs/assets/js/jquery.js > docs/assets/js/jquery.min.js
+	@./node_modules/.bin/uglifyjs -nc docs/assets/js/bootstrap.js > docs/assets/js/bootstrap.min.js
+
 	@echo "Compiling documentation...                  ${CHECK} Done"
 	@./node_modules/.bin/uglifyjs -nc docs/assets/js/bootstrap-lightbox.js > docs/assets/js/bootstrap-lightbox.min.tmp.js
-	@echo "/**\n* Bootstrap-lightbox.js v0.6.0 \n* Copyright 2013 Jason Butz\n* http://www.apache.org/licenses/LICENSE-2.0.txt\n*/" > docs/assets/js/copyright.js
+	@echo "/*!\n* Bootstrap-lightbox.js v0.6.0 \n* Copyright 2013 Jason Butz\n* http://www.apache.org/licenses/LICENSE-2.0.txt\n*/" > docs/assets/js/copyright.js
+	@cat docs/assets/js/copyright.js js/bootstrap-lightbox.js > docs/assets/js/bootstrap-lightbox.js
 	@cat docs/assets/js/copyright.js docs/assets/js/bootstrap-lightbox.min.tmp.js > docs/assets/js/bootstrap-lightbox.min.js
 	@rm docs/assets/js/copyright.js docs/assets/js/bootstrap-lightbox.min.tmp.js
 	@echo "Compiling and minifying javascript...       ${CHECK} Done"

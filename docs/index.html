@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="chrome=1">
 	<title>Bootstrap - Lightbox</title>
-	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/bootstrap-lightbox.min.css">
 	<link rel="stylesheet" href="assets/prettify/prettify.css">
 	<link rel="stylesheet" href="assets/css/styles.css">
@@ -21,7 +21,6 @@
 					<li class="active"><a href="#home">Home</a></li>
 					<li><a href="#demo">Demo</a></li>
 					<li><a href="#usage">Usage</a></li>
-					<li><a href="#bonus">Bonus</a></li>
 				</ul>
 			</div>
 		</div>
@@ -35,7 +34,7 @@
 		<p><a href="https://github.com/jbutz/bootstrap-lightbox/archive/v0.5.zip" class="btn btn-primary btn-large">Download Bootstrap Lightbox</a></p>
 		<ul class="masthead-links">
 			<li><a href="http://github.com/jbutz/bootstrap-lightbox">GitHub project</a></li>
-			<li>Version 0.5.0</li>
+			<li>Version 0.6.0</li>
 		</ul>
 	</div>
 </div>
@@ -61,7 +60,7 @@
 	<div class="page-header">
 		<h1>Demo <small>See it in action!</small></h1>
 	</div>
-	<p>Click the thumbnail below to open the lightbox. This demo includes the optional <code>.lightbox-header</code> element, which adds a close button.</p>
+	<p>Click the thumbnail below to open the lightbox. This demo includes the optional <code>.lightbox-caption</code> element, which adds an image caption.</p>
 
 	<!-- -->
 	<div class="example">
@@ -73,9 +72,6 @@
 			</li>
 		</ul>
 		<div id="demoLightbox" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
-			<div class='lightbox-header'>
-				<button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
-			</div>
 			<div class='lightbox-content'>
 				<img src="assets/img/large.png">
 				<div class="lightbox-caption"><p>Your caption here</p></div>
@@ -84,9 +80,6 @@
 	</div>
 	<!-- -->
 <pre class="prettyprint linenums">&lt;div id=&quot;demoLightbox&quot; class=&quot;lightbox hide fade&quot;  tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-hidden=&quot;true&quot;&gt;
-	&lt;div class='lightbox-header'&gt;
-		&lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;lightbox&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
-	&lt;/div&gt;
 	&lt;div class='lightbox-content'&gt;
 		&lt;img src=&quot;image.png&quot;&gt;
 		&lt;div class=&quot;lightbox-caption&quot;&gt;&lt;p&gt;Your caption here&lt;/p&gt;&lt;/div&gt;
@@ -139,51 +132,16 @@
 				<td>true</td>
 				<td>Shows the lightbox when initialized.<br><i>Note: This only applies when using JavaScript to setup the lightbox.</i></td>
 			</tr>
-			<tr>
-				<td>resizeToFit</td>
-				<td>boolean</td>
-				<td>true</td>
-				<td>This resizes the image to fit the window if the image is too large.</td>
-			</tr>
 		</tbody>
 	</table>
-</div>	</section>
-	<section id="bonus">
-<div class="container">
-	<div class="page-header">
-		<h1>Bonus!</h1>
-	</div>
-	<p>You can make use of the Twitter Bootstrap Carousel plugin <a data-toggle="lightbox" href="#demoLightboxCarousel">inside the lightbox!</a></p>
-	<div id="demoLightboxCarousel" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
-		 <div class='lightbox-header'>
-			<button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
-		</div>
-		<div class='lightbox-content'>
-			<!-- <img src="http://jbutz.github.com/bootstrap-lightbox/assets/img/large.png">  -->
-			<div id="myCarousel" class="carousel slide">
-				<!-- Carousel items -->
-				<div class="carousel-inner">
-					<div class="active item"><img src="http://jbutz.github.com/bootstrap-lightbox/assets/img/large.png"></div>
-					<div class="item"><img src="http://jbutz.github.com/bootstrap-lightbox/assets/img/large.png"></div>
-					<div class="item"><img src="http://jbutz.github.com/bootstrap-lightbox/assets/img/large.png"></div>
-				</div>
-				<!-- Carousel nav -->
-				<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-				<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-			</div>
-		</div>
-	</div>
-	<script>
-	$('.carousel').carousel();
-	</script>
 </div>	</section>
 	<section style="margin-top: 50px; margin-bottom: 50px; height: 10px;">
 		<!-- Take up space -->
 	</section>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/scale.fix.js"></script>
 	<script src="assets/prettify/prettify.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.1/bootstrap.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/bootstrap-lightbox.min.js"></script>
 	<script>
 	$(document).ready(function()
