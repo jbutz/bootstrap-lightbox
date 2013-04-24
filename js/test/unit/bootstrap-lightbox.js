@@ -2,13 +2,19 @@ $(function () {
 
 		module("bootstrap-lightbox")
 
+			test("should provide no conflict", function () {
+				var lightbox = $.fn.lightbox.noConflict()
+				ok(!$.fn.lightbox, 'lightbox was set back to undefined (org value)')
+				$.fn.lightbox = lightbox
+			})
+
 			test("should be defined on jquery object", function () {
-				var div = $("<div id='lightbox-test'><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAADElEQVQYV2P4//8/AAX+Av6nNYGEAAAAAElFTkSuQmCC'></div>")
+				var div = $("<div id='lightbox-test'><div class='lightbox-content'><img src='pixel.png'></div></div>")
 				ok(div.lightbox, 'lightbox method is defined')
 			})
 
 			test("should return element", function () {
-				var div = $("<div id='lightbox-test'><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAADElEQVQYV2P4//8/AAX+Av6nNYGEAAAAAElFTkSuQmCC'></div>")
+				var div = $("<div id='lightbox-test'><div class='lightbox-content'><img src='pixel.png'></div></div>")
 				ok(div.lightbox() == div, 'document.body returned')
 				$('#lightbox-test').remove()
 			})
@@ -20,7 +26,7 @@ $(function () {
 			test("should insert into dom when show method is called", function () {
 				stop()
 				$.support.transition = false
-				var div = $("<div id='lightbox-test'><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAADElEQVQYV2P4//8/AAX+Av6nNYGEAAAAAElFTkSuQmCC'></div>")
+				var div = $("<div id='lightbox-test'><div class='lightbox-content'><img src='pixel.png'></div></div>")
 					.bind("shown", function () {
 						ok($('#lightbox-test').length, 'lightbox insterted into dom')
 						$(this).remove()
@@ -32,7 +38,7 @@ $(function () {
 			test("should fire show event", function () {
 				stop()
 				$.support.transition = false
-				var div = $("<div id='lightbox-test'><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAADElEQVQYV2P4//8/AAX+Av6nNYGEAAAAAElFTkSuQmCC'></div>")
+				var div = $("<div id='lightbox-test'><div class='lightbox-content'><img src='pixel.png'></div></div>")
 					.bind("show", function () {
 						ok(true, "show was called")
 					})
@@ -46,7 +52,7 @@ $(function () {
 			test("should not fire shown when default prevented", function () {
 				stop()
 				$.support.transition = false
-				var div = $("<div id='lightbox-test'><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAADElEQVQYV2P4//8/AAX+Av6nNYGEAAAAAElFTkSuQmCC'></div>")
+				var div = $("<div id='lightbox-test'><div class='lightbox-content'><img src='pixel.png'></div></div>")
 					.bind("show", function (e) {
 						e.preventDefault()
 						ok(true, "show was called")
@@ -62,7 +68,7 @@ $(function () {
 				stop()
 				$.support.transition = false
 
-				var div = $("<div id='lightbox-test'><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAADElEQVQYV2P4//8/AAX+Av6nNYGEAAAAAElFTkSuQmCC'></div>")
+				var div = $("<div id='lightbox-test'><div class='lightbox-content'><img src='pixel.png'></div></div>")
 					.bind("shown", function () {
 						ok($('#lightbox-test').is(":visible"), 'lightbox visible')
 						ok($('#lightbox-test').length, 'lightbox insterted into dom')
@@ -79,7 +85,7 @@ $(function () {
 			test("should toggle when toggle is called", function () {
 				stop()
 				$.support.transition = false
-				var div =  $("<div id='lightbox-test'><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAADElEQVQYV2P4//8/AAX+Av6nNYGEAAAAAElFTkSuQmCC'></div>")
+				var div =  $("<div id='lightbox-test'><div class='lightbox-content'><img src='pixel.png'></div></div>")
 				div
 					.bind("shown", function () {
 						ok($('#lightbox-test').is(":visible"), 'lightbox visible')
@@ -97,7 +103,7 @@ $(function () {
 			test("should remove from dom when click [data-dismiss=lightbox]", function () {
 				stop()
 				$.support.transition = false
-				var div = $("<div id='lightbox-test'><span class='close' data-dismiss='lightbox'></span><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAADElEQVQYV2P4//8/AAX+Av6nNYGEAAAAAElFTkSuQmCC'></div>")
+				var div = $("<div id='lightbox-test'><span class='close' data-dismiss='lightbox'></span><div class='lightbox-content'><img src='pixel.png'></div></div>")
 				div
 					.bind("shown", function () {
 						ok($('#lightbox-test').is(":visible"), 'lightbox visible')
