@@ -1,3 +1,4 @@
-language: node_js
-node_js:
-  - 0.6
+before_script:
+  - cd ./js/tests
+  - echo "new Date().toString();" | phantomjs
+script: phantomjs run-qunit.js index.html

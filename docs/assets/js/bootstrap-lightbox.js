@@ -86,6 +86,51 @@
 		});
 	};
 
+	// We have to have this because of a class in it
+	Lightbox.prototype.hide = function (e)
+	{
+        e && e.preventDefault()
+
+        var that = this
+
+        e = $.Event('hide')
+
+        this.$element.trigger(e)
+
+        if (!this.isShown || e.isDefaultPrevented()) return
+
+        this.isShown = false
+
+        this.escape()
+
+        $(document).off('focusin.lightbox')
+
+        this.$element
+          .removeClass('in')
+          .attr('aria-hidden', true)
+
+        $.support.transition && this.$element.hasClass('fade') ?
+          this.hideWithTransition() :
+          this.hideModal()
+    };
+
+    // This references a class as well
+    Lightbox.prototype.escape = function()
+	{
+		var that = this
+		if (this.isShown && this.options.keyboard)
+		{
+			this.$element.on('keyup.dismiss.lightbox', function ( e )
+			{
+				e.which == 27 && that.hide()
+			})
+		}
+		else if (!this.isShown)
+		{
+			this.$element.off('keyup.dismiss.lightbox')
+		}
+	}
+
 	Lightbox.prototype.preloadSize = function(callback)
 	{
 		var callbacks = $.Callbacks();

@@ -43,12 +43,15 @@ build:
 #
 
 test:
-	./node_modules/.bin/jshint js/*.js --config js/.jshintrc
-	./node_modules/.bin/jshint js/tests/unit/*.js --config js/.jshintrc
-	node js/tests/server.js &
-	phantomjs js/tests/phantom.js "http://localhost:3000/js/tests"
-	kill -9 `cat js/tests/pid.txt`
-	rm js/tests/pid.txt
+	@echo "\n${HR}"
+	@echo "Running Bootstrap Lightbox Tests..."
+	@echo "${HR}\n"
+	@./node_modules/.bin/jshint js/*.js --config js/.jshintrc
+	@echo "Running JSHint on javascript...             ${CHECK} Done"
+	@./node_modules/.bin/jshint js/tests/unit/*.js --config js/.jshintrc
+	@echo "Running JSHint on javascript tests...       ${CHECK} Done"
+	@cd js/tests/; phantomjs run-qunit.js index.html
+	@echo "Running QUnit...                            ${CHECK} Done"
 
 #
 # CLEANS THE ROOT DIRECTORY OF PRIOR BUILDS
@@ -61,10 +64,9 @@ clean:
 # MAKE FOR GH-PAGES 4 FAT & MDO ONLY (O_O  )
 #
 
-gh-pages: bootstrap docs
-	rm -f docs/assets/bootstrap.zip
-	zip -r docs/assets/bootstrap.zip bootstrap
-	rm -r bootstrap
-	rm -f ../bootstrap-gh-pages/assets/bootstrap.zip
-	node docs/build production
-	cp -r docs/* ../bootstrap-gh-pages
+gh-pages:
+	rm -f docs/assets/bootstrap-lightbox.zip
+	zip docs/assets/bootstrap-lightbox.zip docs/assets/js/bootstrap-lightbox.js docs/assets/bootstrap-lightbox.zip docs/assets/js/bootstrap-lightbox.min.js docs/assets/bootstrap-lightbox.zip docs/assets/css/bootstrap-lightbox.css docs/assets/css/bootstrap-lightbox.min.css
+	rm -rf ../bootstrap-lightbox-gh-pages/
+	node docs/build
+	cp -r docs/* ../bootstrap-lightbox-gh-pages

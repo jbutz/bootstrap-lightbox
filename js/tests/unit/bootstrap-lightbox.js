@@ -27,7 +27,7 @@ $(function () {
 				stop()
 				$.support.transition = false
 				var div = $("<div id='lightbox-test'><div class='lightbox-content'><img src='pixel.png'></div></div>")
-					.bind("shown", function () {
+					.on("shown", function () {
 						ok($('#lightbox-test').length, 'lightbox insterted into dom')
 						$(this).remove()
 						start()
@@ -39,10 +39,10 @@ $(function () {
 				stop()
 				$.support.transition = false
 				var div = $("<div id='lightbox-test'><div class='lightbox-content'><img src='pixel.png'></div></div>")
-					.bind("show", function () {
+					.on("show", function () {
 						ok(true, "show was called")
 					})
-					.bind("shown", function () {
+					.on("shown", function () {
 						$(this).remove()
 						start()
 					})
@@ -53,12 +53,12 @@ $(function () {
 				stop()
 				$.support.transition = false
 				var div = $("<div id='lightbox-test'><div class='lightbox-content'><img src='pixel.png'></div></div>")
-					.bind("show", function (e) {
+					.on("show", function (e) {
 						e.preventDefault()
 						ok(true, "show was called")
 						start()
 					})
-					.bind("shown", function () {
+					.on("shown", function () {
 						ok(false, "shown was called")
 					})
 					.lightbox("show")
@@ -69,14 +69,15 @@ $(function () {
 				$.support.transition = false
 
 				var div = $("<div id='lightbox-test'><div class='lightbox-content'><img src='pixel.png'></div></div>")
-					.bind("shown", function () {
-						ok($('#lightbox-test').is(":visible"), 'lightbox visible')
-						ok($('#lightbox-test').length, 'lightbox insterted into dom')
+					.on("shown", function () {
+						ok($(this).is(":visible"), 'lightbox visible')
+						ok($(this).length, 'lightbox insterted into dom')
 						$(this).lightbox("hide")
 					})
-					.bind("hidden", function() {
-						ok(!$('#lightbox-test').is(":visible"), 'lightbox hidden')
-						$('#lightbox-test').remove()
+					.on("hidden", function() {
+
+						ok($(this).is(":hidden"), 'lightbox hidden')
+						$(this).remove()
 						start()
 					})
 					.lightbox("show")
@@ -87,13 +88,13 @@ $(function () {
 				$.support.transition = false
 				var div =  $("<div id='lightbox-test'><div class='lightbox-content'><img src='pixel.png'></div></div>")
 				div
-					.bind("shown", function () {
-						ok($('#lightbox-test').is(":visible"), 'lightbox visible')
-						ok($('#lightbox-test').length, 'lightbox insterted into dom')
+					.on("shown", function () {
+						ok($(this).is(":visible"), 'lightbox visible')
+						ok($(this).length, 'lightbox insterted into dom')
 						div.lightbox("toggle")
 					})
-					.bind("hidden", function() {
-						ok(!$('#lightbox-test').is(":visible"), 'lightbox hidden')
+					.on("hidden", function() {
+						ok($(this).is(":hidden"), 'lightbox hidden')
 						div.remove()
 						start()
 					})
@@ -105,13 +106,13 @@ $(function () {
 				$.support.transition = false
 				var div = $("<div id='lightbox-test'><span class='close' data-dismiss='lightbox'></span><div class='lightbox-content'><img src='pixel.png'></div></div>")
 				div
-					.bind("shown", function () {
-						ok($('#lightbox-test').is(":visible"), 'lightbox visible')
-						ok($('#lightbox-test').length, 'lightbox insterted into dom')
+					.on("shown", function () {
+						ok($(this).is(":visible"), 'lightbox visible')
+						ok($(this).length, 'lightbox insterted into dom')
 						div.find('.close').click()
 					})
-					.bind("hidden", function() {
-						ok(!$('#lightbox-test').is(":visible"), 'lightbox hidden')
+					.on("hidden", function() {
+						ok($(this).is(":hidden"), 'lightbox hidden')
 						div.remove()
 						start()
 					})
