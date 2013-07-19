@@ -1,5 +1,5 @@
 !function ($) {
-	"use strict"; // jshint ;_;
+	"use strict";
 
 
 /* LIGHTBOX CLASS DEFINITION
@@ -39,14 +39,14 @@
 		var that = this,
 			e    = $.Event('show');
 	
-		this.$element.trigger(e)
+		this.$element.trigger(e);
 	
-		if (this.isShown || e.isDefaultPrevented()) return
+		if (this.isShown || e.isDefaultPrevented()) return;
 	
 		this.isShown = true;
 	
 
-		this.escape()
+		this.escape();
 	
 		// This bit is added since we don't display until we have the size
 		//	which prevents image jumping
@@ -54,29 +54,29 @@
 		{
 			that.backdrop(function ()
 			{
-				var transition = $.support.transition && that.$element.hasClass('fade')
+				var transition = $.support.transition && that.$element.hasClass('fade');
 		
 				if (!that.$element.parent().length)
 				{
-					that.$element.appendTo(document.body) //don't move modals dom position
+					that.$element.appendTo(document.body); //don't move modals dom position
 				}
 		
-				that.$element.show()
+				that.$element.show();
 		
 				if (transition)
 				{
-					that.$element[0].offsetWidth // force reflow
+					that.$element[0].offsetWidth; // force reflow
 				}
 		
 				that.$element
 					.addClass('in')
-					.attr('aria-hidden', false)
+					.attr('aria-hidden', false);
 		
-				that.enforceFocus()
+				that.enforceFocus();
 		
 				transition ?
 					that.$element.one($.support.transition.end, function () { that.$element.focus().trigger('shown') }) :
-					that.$element.focus().trigger('shown')
+					that.$element.focus().trigger('shown');
 			});
 		});
 	};
@@ -84,45 +84,45 @@
 	// We have to have this because of a class in it
 	Lightbox.prototype.hide = function (e)
 	{
-        e && e.preventDefault()
+        e && e.preventDefault();
 
-        var that = this
+        var that = this;
 
-        e = $.Event('hide')
+        e = $.Event('hide');
 
-        this.$element.trigger(e)
+        this.$element.trigger(e);
 
-        if (!this.isShown || e.isDefaultPrevented()) return
+        if (!this.isShown || e.isDefaultPrevented()) return;
 
-        this.isShown = false
+        this.isShown = false;
 
-        this.escape()
+        this.escape();
 
-        $(document).off('focusin.lightbox')
+        $(document).off('focusin.lightbox');
 
         this.$element
           .removeClass('in')
-          .attr('aria-hidden', true)
+          .attr('aria-hidden', true);
 
         $.support.transition && this.$element.hasClass('fade') ?
           this.hideWithTransition() :
-          this.hideModal()
+          this.hideModal();
     };
 
     // This references a class as well
     Lightbox.prototype.escape = function()
 	{
-		var that = this
+		var that = this;
 		if (this.isShown && this.options.keyboard)
 		{
 			this.$element.on('keyup.dismiss.lightbox', function ( e )
 			{
-				e.which == 27 && that.hide()
-			})
+				e.which == 27 && that.hide();
+			});
 		}
 		else if (!this.isShown)
 		{
-			this.$element.off('keyup.dismiss.lightbox')
+			this.$element.off('keyup.dismiss.lightbox');
 		}
 	}
 
@@ -200,7 +200,7 @@
 /* LIGHTBOX PLUGIN DEFINITION
  * ======================= */
 
-	var old = $.fn.lightbox
+	var old = $.fn.lightbox;
 
 	$.fn.lightbox = function (option)
 	{
@@ -212,9 +212,9 @@
 			if (!data) $this.data('lightbox', (data = new Lightbox(this, options)));
 
 			if (typeof option == 'string')
-				data[option]()
+				data[option]();
 			else if (options.show)
-				data.show()
+				data.show();
 		});
 	};
 
@@ -230,15 +230,15 @@
   * ================= */
 
   $.fn.lightbox.noConflict = function () {
-	$.fn.lightbox = old
-	return this
+	$.fn.lightbox = old;
+	return this;
   }
 
 
 /* LIGHTBOX DATA-API
  * ================== */
 
-	$(document).on('click.lightbox.data-api', '[data-toggle="lightbox"]', function (e)
+	$(document).on('click.lightbox.data-api', '[data-toggle*="lightbox"]', function (e)
 	{
 		var $this = $(this);
 		var href  = $this.attr('href');
@@ -251,7 +251,7 @@
 			.lightbox(option)
 			.one('hide', function () 
 			{
-				$this.focus()
+				$this.focus();
 			});
 	})
 
