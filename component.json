@@ -1,7 +1,7 @@
 {
 	"name": "bootstrap-lightbox",
-	"version": "1.0.0",
-	"main": ["docs/assets/js/bootstrap-lightbox.js","docs/assets/css/datepicker.css"],
+	"version": "1.1.0",
+	"main": ["docs/assets/js/bootstrap-lightbox.js","docs/assets/css/bootstrap-lightbox.css"],
 	"dependencies": {
 		"jquery" : ">=1.7.1",
 		"bootstrap" : ">=2.0.4 <3.0"

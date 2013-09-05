@@ -13,28 +13,36 @@
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 </head>
-<body data-spy="scroll" data-target=".navbar">
-	<div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<ul class="nav">
-					<li class="active"><a href="#home">Home</a></li>
-					<li><a href="#demo">Demo</a></li>
-					<li><a href="#usage">Usage</a></li>
-				</ul>
-			</div>
-		</div>
+<body data-spy="scroll" data-target="#navbar">
+<nav id="navbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="#">Bootstrap Lightbox</a>
 	</div>
+
+	<div class="collapse navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#home">Home</a></li>
+			<li><a href="#demo">Demo</a></li>
+			<li><a href="#usage">Usage</a></li>
+		</ul>
+	</div>
+</nav>
+
 	<!-- -->
 	<section id="home">
 <div class="jumbotron masthead">
 	<div class="container">
 		<h1>Bootstrap Lightbox</h1>
 		<p>A simple lightbox plugin based on the bootstrap modal plugin.</p>
-		<p><a href="assets/bootstrap-lightbox.zip" class="btn btn-primary btn-large">Download Bootstrap Lightbox</a></p>
+		<p><a href="assets/bootstrap-lightbox.zip" class="btn btn-primary btn-lg">Download Bootstrap Lightbox</a></p>
 		<ul class="masthead-links">
 			<li><a href="http://github.com/jbutz/bootstrap-lightbox">GitHub project</a></li>
-			<li>Version 0.6.1</li>
+			<li>Version 1.1.0</li>
 		</ul>
 	</div>
 </div>
@@ -64,25 +72,25 @@
 
 	<!-- -->
 	<div class="example">
-		<ul class="thumbnails">
-			<li class="span2">
-				<a data-toggle="lightbox" href="#demoLightbox" class="thumbnail">
-					<img src="assets/img/small.png" alt="Click to view the lightbox">
-				</a>
-			</li>
-		</ul>
-		<div id="demoLightbox" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
-			<div class='lightbox-content'>
-				<img src="assets/img/large.png">
-				<div class="lightbox-caption"><p>Your caption here</p></div>
+		<a data-toggle="lightbox" href="#demoLightbox" class="img-thumbnail">
+			<img src="assets/img/small.png" alt="Click to view the lightbox">
+		</a>
+		<div id="demoLightbox" class="lightbox fade"  tabindex="-1" role="dialog" aria-hidden="true">
+			<div class='lightbox-dialog'>
+				<div class='lightbox-content'>
+					<img src="assets/img/large.png">
+					<div class="lightbox-caption"><p>Your caption here</p></div>
+				</div>
 			</div>
 		</div>
 	</div>
 	<!-- -->
-<pre class="prettyprint linenums">&lt;div id=&quot;demoLightbox&quot; class=&quot;lightbox hide fade&quot;  tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-hidden=&quot;true&quot;&gt;
-	&lt;div class='lightbox-content'&gt;
-		&lt;img src=&quot;image.png&quot;&gt;
-		&lt;div class=&quot;lightbox-caption&quot;&gt;&lt;p&gt;Your caption here&lt;/p&gt;&lt;/div&gt;
+<pre class="prettyprint linenums">&lt;div id=&quot;demoLightbox&quot; class=&quot;lightbox fade&quot;  tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-hidden=&quot;true&quot;&gt;
+	&lt;div class='lightbox-dialog'&gt;
+		&lt;div class='lightbox-content'&gt;
+			&lt;img src=&quot;image.png&quot;&gt;
+			&lt;div class=&quot;lightbox-caption&quot;&gt;&lt;p&gt;Your caption here&lt;/p&gt;&lt;/div&gt;
+		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
 </pre>
