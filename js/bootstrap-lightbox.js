@@ -223,6 +223,7 @@
 
 		// Load the image, we have to do this because if the image isn't already loaded we get a bad size
 		$image    = that.$element.find('.lightbox-content').find('img:first');
+		if($image.length <= 0) return callbacks.fire();
 		preloader = new Image();
 		preloader.onload = function()
 		{

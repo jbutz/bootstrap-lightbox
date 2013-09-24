@@ -34,87 +34,57 @@ body.lightbox-open,
 		-ms-transform: translate(0, 0);
 		transform: translate(0, 0);
 	}
-}
 
-.lightbox-dialog {
+	.lightbox-dialog {
 	z-index: 1050;
 	width: auto;
 	/*padding: 10px;*/
 	margin-right: auto;
 	margin-left: auto;
+
+	.lightbox-header {
+		float: right;
+		.close {
+			margin-top: -2px;
+		}
+	}
+
+	.lightbox-content {
+		position: relative;
+		background-color: #ffffff;
+		border: 1px solid #999999;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		border-radius: 6px;
+		outline: none;
+		-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+		box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+		background-clip: padding-box;
+		/**/
+		padding: 10px;
+		display: inline-block;
+
+		.lightbox-caption {
+			position: absolute;
+			right: 8px;
+			bottom: 8px;
+			left: 10px;
+			padding: 2%;
+			font-size: 14px;
+			line-height: 18px;
+			color: white;
+			text-align: center;
+			text-shadow: 0 -1px 0 #000;
+			text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+			background: #000;
+			background: rgba(0,0,0,0.6);
+		}
+	}
+}
 }
 
-.lightbox-content {
-	position: relative;
-	background-color: #ffffff;
-	border: 1px solid #999999;
-	border: 1px solid rgba(0, 0, 0, 0.2);
-	border-radius: 6px;
-	outline: none;
-	-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-	box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-	background-clip: padding-box;
-	/**/
-	padding: 10px;
-	display: inline-block;
-}
 
-.lightbox-header {
-	min-height: 16.428571429px;
-	padding: 15px;
-	border-bottom: 1px solid #e5e5e5;
-}
 
-.lightbox-header .close {
-	margin-top: -2px;
-}
 
-.lightbox-title {
-	margin: 0;
-	line-height: 1.428571429;
-}
 
-.lightbox-body {
-	position: relative;
-	padding: 20px;
-}
 
-.lightbox-footer {
-	padding: 19px 20px 20px;
-	margin-top: 15px;
-	text-align: right;
-	border-top: 1px solid #e5e5e5;
-}
 
-.lightbox-footer:before,
-.lightbox-footer:after {
-	display: table;
-	content: " ";
-}
-
-.lightbox-footer:after {
-	clear: both;
-}
-
-.lightbox-footer:before,
-.lightbox-footer:after {
-	display: table;
-	content: " ";
-}
-
-.lightbox-footer:after {
-	clear: both;
-}
-
-.lightbox-footer .btn + .btn {
-	margin-bottom: 0;
-	margin-left: 5px;
-}
-
-.lightbox-footer .btn-group .btn + .btn {
-	margin-left: -1px;
-}
-
-.lightbox-footer .btn-block + .btn-block {
-	margin-left: 0;
-}
