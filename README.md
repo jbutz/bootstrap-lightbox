@@ -16,15 +16,14 @@ Example
 
 ```html
 <a data-toggle="lightbox" href="#demoLightbox">Open Lightbox</a>
-<div id="demoLightbox" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
-	<div class='lightbox-header'>
-		<button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
-	</div>
-	<div class='lightbox-content'>
-		<img src="image.png">
-	</div>
-	<div class='lightbox-footer'>
-		<button class="btn btn-small btn-primary">Click</button>
+<div id="demoLightbox" class="lightbox fade"  tabindex="-1" role="dialog" aria-hidden="true">
+	<div class='lightbox-dialog'>
+		<div class='lightbox-content'>
+			<img src="image.png">
+			<div class='lightbox-caption'>
+				Your caption here
+			</div>
+		</div>
 	</div>
 </div>
 ```
