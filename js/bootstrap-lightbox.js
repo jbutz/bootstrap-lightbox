@@ -195,80 +195,91 @@
 		}
 	};
 
-	Lightbox.prototype.preloadSize = function(callback)
-	{
-		var callbacks = $.Callbacks();
-		if(callback) callbacks.add( callback );
-		var that = this;
+    Lightbox.prototype.setSize = function(width, height) {
+        var originalWidth,
+            originalHeight;
 
-		var windowHeight,
-			windowWidth,
-			padTop,
-			padBottom,
-			padLeft,
-			padRight,
-			$image,
-			preloader,
-			originalWidth,
-			originalHeight;
-		// Get the window width and height.
-		windowHeight = $(window).height();
-		windowWidth  = $(window).width();
+        var windowHeight = $(window).height();
+        var windowWidth  = $(window).width();
 
-		// Get the top, bottom, right, and left padding
-		padTop    = parseInt( that.$element.find('.lightbox-content').css('padding-top')    , 10);
-		padBottom = parseInt( that.$element.find('.lightbox-content').css('padding-bottom') , 10);
-		padLeft   = parseInt( that.$element.find('.lightbox-content').css('padding-left')   , 10);
-		padRight  = parseInt( that.$element.find('.lightbox-content').css('padding-right')  , 10);
+        var padTop = parseInt(this.$element.find('.lightbox-content')
+            .css('padding-top'), 10);
+        var padBottom = parseInt(this.$element.find('.lightbox-content')
+            .css('padding-bottom'), 10);
+        var padLeft = parseInt(this.$element.find('.lightbox-content')
+            .css('padding-left'), 10);
+        var padRight = parseInt(this.$element.find('.lightbox-content')
+            .css('padding-right'), 10);
 
-		// Load the image, we have to do this because if the image isn't already loaded we get a bad size
-		$image    = that.$element.find('.lightbox-content').find('img:first');
-		if($image.length <= 0) return callbacks.fire();
-		preloader = new Image();
-		preloader.onload = function()
-		{
-			//$image.width = preloader.width;
-			//$image.height = preloader.height;
-			//return _this.sizeContainer(preloader.width, preloader.height);
+        // The image could be bigger than the window, that is an issue.
+        if( (width + padLeft + padRight) >= windowWidth)
+        {
+            originalWidth = width;
+            originalHeight = height;
+            width = windowWidth - padLeft - padRight;
+            height = originalHeight / originalWidth * width;
+        }
 
-			// The image could be bigger than the window, that is an issue.
-			if( (preloader.width + padLeft + padRight) >= windowWidth)
-			{
-				originalWidth = preloader.width;
-				originalHeight = preloader.height;
-				preloader.width = windowWidth - padLeft - padRight;
-				preloader.height = originalHeight / originalWidth * preloader.width;
-			}
+        if( (height + padTop + padBottom) >= windowHeight)
+        {
+            originalWidth = width;
+            originalHeight = height;
+            height = windowHeight - padTop - padBottom;
+            width = originalWidth / originalHeight * height;
+        }
 
-			if( (preloader.height + padTop + padBottom) >= windowHeight)
-			{
-				originalWidth = preloader.width;
-				originalHeight = preloader.height;
-				preloader.height = windowHeight - padTop - padBottom;
-				preloader.width = originalWidth / originalHeight * preloader.height;
-			}
-			that.$element.find('.lightbox-dialog').css({
-				'position': 'fixed',
-				'width': preloader.width + padLeft + padRight,
-				'height': preloader.height + padTop + padBottom,
-				'top' : (windowHeight / 2) - ( (preloader.height + padTop + padBottom) / 2),
-				'left' : '50%',
-				'margin-left' : -1 * (preloader.width + padLeft + padRight) / 2
-			});
-			that.$element.find('.lightbox-content').css({
-				'width': preloader.width + padLeft + padRight,
-				'height': preloader.height + padTop + padBottom
-			});
-			$image.css({
-				'width': preloader.width,
-				'height': preloader.height
-			})
+        this.$element.css({
+            'position': 'fixed',
+            'width': width + padLeft + padRight,
+            'height': height + padTop + padBottom,
+            'top' : (windowHeight / 2) - ( (height + padTop + padBottom) / 2),
+            'left' : '50%',
+            'margin-left' : -1 * (width + padLeft + padRight) / 2
+        });
+        this.$element.find('.lightbox-content').css({
+            'width': width,
+            'height': height
+        });
+    };
 
-			// We have everything sized!
-			callbacks.fire();
-		};
-		preloader.src = $image.attr('src');
-	};
+    Lightbox.prototype.preloadSize = function(callback)
+    {
+        var callbacks = $.Callbacks();
+        if(callback) callbacks.add( callback );
+
+        // first check preset width and height.
+        if(this.options.width && this.options.height) {
+            this.setSize(this.options.width, this.options.height);
+            callbacks.fire();
+            return;
+        }
+
+        // Load the image, we have to do this because if the image isn't already loaded we get a bad size
+        var that = this, preloader;
+        var $image = this.$element.find('.lightbox-content img:first');
+        if($image.length) {
+            preloader = new Image();
+            preloader.onload = function() {
+                that.setSize(preloader.width, preloader.height);
+                callbacks.fire();
+            };
+            preloader.src = $image.attr('src');
+            return;
+        }
+        // If no image is present check for video presence
+        var $video = this.$element.find('.lightbox-content video:first');
+        if($video.length) {
+            preloader = document.createElement('video');
+            $(preloader).on('loadedmetadata', function() {
+                that.setSize(preloader.videoWidth, preloader.videoHeight);
+                callbacks.fire();
+            });
+            preloader.preload = 'metadata';
+            preloader.src = $video.find('source:first').attr('src');
+            return;
+        }
+        throw new Error("If no video or image is included in the lightbox, a pre-set width or height must be specified.");
+    };
 
 
 	// LIGHTBOX PLUGIN DEFINITION
