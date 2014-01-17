@@ -348,7 +348,7 @@
 		var $this = $(this);
 
 		$this.parents('.lightbox')
-			 .lightbox('slide', $(this).data('lightbox-slide'));
+			.lightbox('slide', $(this).data('lightbox-slide'));
 	});
 
 	$(document)

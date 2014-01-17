@@ -1,6 +1,6 @@
 /*!
-* bootstrap-lightbox.js v0.6.1 
-* Copyright 2013 Jason Butz
+* bootstrap-lightbox.js v0.7.0 
+* Copyright 2014 Jason Butz
 * http://www.apache.org/licenses/LICENSE-2.0.txt
 */
 
@@ -85,7 +85,7 @@
 		});
 	};
 
-	Lightbox.prototype.hide = function (e)
+	Lightbox.prototype.hide = function (e, slide)
 	{
 		if (e) e.preventDefault();
 
@@ -108,9 +108,9 @@
 
 		$.support.transition && this.$element.hasClass('fade') ?
 			this.$element
-				.one($.support.transition.end, $.proxy(this.hideModal, this))
+				.one($.support.transition.end, $.proxy(this.hideModal(slide), this))
 				.emulateTransitionEnd(300) :
-			this.hideModal();
+			this.hideModal(slide);
 	};
 
 	Lightbox.prototype.enforceFocus = function () {
@@ -140,14 +140,16 @@
 		}
 	}
 
-	Lightbox.prototype.hideModal = function () 
+	Lightbox.prototype.hideModal = function (slide) 
 	{
 		var that = this;
 		this.$element.hide();
 		this.backdrop(function ()
 		{
 			that.removeBackdrop();
-			that.$element.trigger('hidden.bs.lightbox');
+
+			// Don't trigger hidden event if sliding between lightboxes
+			if(!slide) that.$element.trigger('hidden.bs.lightbox');
 		});
 	};
 
@@ -275,6 +277,22 @@
 		preloader.src = $image.attr('src');
 	};
 
+	Lightbox.prototype.slide = function(direction)
+	{
+		var that = this;
+
+		that.hide(that.event, true);
+
+		if (direction == 'next' && that.$element.next('.lightbox').length) {
+			that.$element.next('.lightbox').lightbox('show');
+		} else if(direction == 'prev' && that.$element.prev('.lightbox').length) {
+			that.$element.prev('.lightbox').lightbox('show');
+		} else {
+			// Trigger hidden event because there is no next / previous slide
+			that.$element.trigger('hidden.bs.lightbox');
+		}
+	}
+
 
 	// LIGHTBOX PLUGIN DEFINITION
 	// =======================
@@ -326,6 +344,16 @@
 			{
 				$this.is(':visible') && $this.focus()
 			});
+	});
+
+	$(document).on('click', '.lightbox-control', function (e)
+	{
+		e.preventDefault();
+
+		var $this = $(this);
+
+		$this.parents('.lightbox')
+			.lightbox('slide', $(this).data('lightbox-slide'));
 	});
 
 	$(document)

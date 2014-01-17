@@ -1,6 +1,6 @@
 {
 	"name": "bootstrap-lightbox",
-	"version": "0.6.2",
+	"version": "0.7.0",
 	"main": ["docs/assets/js/bootstrap-lightbox.js","docs/assets/css/bootstrap-lightbox.css"],
 	"dependencies": {
 		"jquery" : ">=1.7.1",

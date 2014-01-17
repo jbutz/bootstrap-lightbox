@@ -29,12 +29,12 @@ build:
 	@echo "Compiling documentation...                  ${CHECK} Done"
 	@./node_modules/.bin/uglifyjs -nc docs/assets/js/bootstrap-lightbox.js > docs/assets/js/bootstrap-lightbox.min.tmp.js
 
-	@echo "/*!\n* bootstrap-lightbox.js v0.6.1 \n* Copyright 2013 Jason Butz\n* http://www.apache.org/licenses/LICENSE-2.0.txt\n*/" > docs/assets/js/copyright.js
+	@echo "/*!\n* bootstrap-lightbox.js v0.7.0 \n* Copyright 2014 Jason Butz\n* http://www.apache.org/licenses/LICENSE-2.0.txt\n*/" > docs/assets/js/copyright.js
 	@cat docs/assets/js/copyright.js js/bootstrap-lightbox.js > docs/assets/js/bootstrap-lightbox.js
 	@cat docs/assets/js/copyright.js docs/assets/js/bootstrap-lightbox.min.tmp.js > docs/assets/js/bootstrap-lightbox.min.js
 	@rm docs/assets/js/copyright.js docs/assets/js/bootstrap-lightbox.min.tmp.js
 
-	@echo "/*!\n* bootstrap-lightbox.css v0.6.1 \n* Copyright 2013 Jason Butz\n* http://www.apache.org/licenses/LICENSE-2.0.txt\n*/" > docs/assets/css/copyright.css
+	@echo "/*!\n* bootstrap-lightbox.css v0.7.0 \n* Copyright 2014 Jason Butz\n* http://www.apache.org/licenses/LICENSE-2.0.txt\n*/" > docs/assets/css/copyright.css
 	@cat docs/assets/css/copyright.css docs/assets/css/bootstrap-lightbox.css.tmp > docs/assets/css/bootstrap-lightbox.css
 	@cat docs/assets/css/copyright.css docs/assets/css/bootstrap-lightbox.min.css.tmp > docs/assets/css/bootstrap-lightbox.min.css
 	@rm docs/assets/css/copyright.css docs/assets/css/bootstrap-lightbox.css.tmp  docs/assets/css/bootstrap-lightbox.min.css.tmp
