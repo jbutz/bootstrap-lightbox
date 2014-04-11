@@ -233,6 +233,25 @@
 			//$image.height = preloader.height;
 			//return _this.sizeContainer(preloader.width, preloader.height);
 
+			var minWidth = parseInt($image.css('min-width'), 10);
+			var minHeight = parseInt($image.css('min-height'), 10);
+
+			if (preloader.width < minWidth)
+			{
+				originalWidth = preloader.width;
+				originalHeight = preloader.height;
+				preloader.width = minWidth;
+				preloader.height = originalHeight / originalWidth * preloader.width;
+			}
+
+			if (preloader.height < minHeight)
+			{
+				originalWidth = preloader.width;
+				originalHeight = preloader.height;
+				preloader.height = minHeight;
+				preloader.width = originalWidth / originalHeight * preloader.height;
+			}
+
 			// The image could be bigger than the window, that is an issue.
 			if( (preloader.width + padLeft + padRight) >= windowWidth)
 			{
