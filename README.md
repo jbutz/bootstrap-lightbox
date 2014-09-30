@@ -1,3 +1,5 @@
+**THIS PLUGIN IS NO LONGER BEING MAINTAINED. IF SOMEONE ELSE WANTS TO MAINTAIN IT FEEL FREE TO FORK THE REPO.**
+
 [Bootstrap - Lightbox](http://jbutz.github.com/bootstrap-lightbox/) [![Build Status](https://secure.travis-ci.org/jbutz/bootstrap-lightbox.png)](http://travis-ci.org/jbutz/bootstrap-lightbox)
 =================
 
