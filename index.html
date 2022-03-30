@@ -12,6 +12,34 @@
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+	<script type='text/javascript'>
+	//some default pre init
+	var Countly = Countly || {};
+	Countly.q = Countly.q || [];
+
+	//provide countly initialization parameters
+	Countly.app_key = 'c6f247fce3c6751e818e67407df11086966e709c';
+	Countly.url = 'https://countly.jasonbutz.info';
+
+	Countly.q.push(['track_sessions']);
+	Countly.q.push(['track_pageview']);
+	Countly.q.push(['track_clicks']);
+	Countly.q.push(['track_scrolls']);
+	Countly.q.push(['track_errors']);
+	Countly.q.push(['track_links']);
+	Countly.q.push(['track_forms']);
+	Countly.q.push(['collect_from_forms']);
+
+	//load countly script asynchronously
+	(function() {
+	   var cly = document.createElement('script'); cly.type = 'text/javascript';
+	   cly.async = true;
+	   //enter url of script here
+	   cly.src = 'https://cdnjs.cloudflare.com/ajax/libs/countly-sdk-web/20.4.0/countly.min.js';
+	   cly.onload = function(){Countly.init()};
+	   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(cly, s);
+	})();
+	</script>
 </head>
 <body data-spy="scroll" data-target=".navbar">
 	<div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
@@ -149,30 +177,6 @@
 		prettyPrint();
 	});
 	</script>
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-38085002-1']);
-		_gaq.push(['_trackPageview']);
-
-		(function() {
-		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		 })();
-	</script>
-	
-	<script type="text/javascript">
-	  var _paq = _paq || [];
-	  _paq.push(['trackPageView']);
-	  _paq.push(['enableLinkTracking']);
-	  (function() {
-	    var u="//analytics.jasonbutz.info/";
-	    _paq.push(['setTrackerUrl', u+'qwertyphp']);
-	    _paq.push(['setSiteId', '2']);
-	    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-	    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'qwerty.js'; s.parentNode.insertBefore(g,s);
-	  })();
-	</script>
-	<noscript><p><img src="//analytics.jasonbutz.info/qwertyphp?idsite=2&rec=1" style="border:0;" alt="" /></p></noscript>
+	<noscript><img src='https://countly.jasonbutz.info/pixel.png?app_key=c6f247fce3c6751e818e67407df11086966e709c&begin_session=1'/></noscript>
 </body>
 </html>
