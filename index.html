@@ -12,35 +12,7 @@
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<script type='text/javascript'>
-	//some default pre init
-	var Countly = Countly || {};
-	Countly.q = Countly.q || [];
-
-	//provide countly initialization parameters
-	Countly.app_key = 'c6f247fce3c6751e818e67407df11086966e709c';
-	Countly.url = 'https://countly.jasonbutz.info';
-
-	Countly.q.push(['track_sessions']);
-	Countly.q.push(['track_pageview']);
-	Countly.q.push(['track_clicks']);
-	Countly.q.push(['track_scrolls']);
-	Countly.q.push(['track_errors']);
-	Countly.q.push(['track_links']);
-	Countly.q.push(['track_forms']);
-	Countly.q.push(['collect_from_forms']);
-
-	//load countly script asynchronously
-	(function() {
-	   var cly = document.createElement('script'); cly.type = 'text/javascript';
-	   cly.async = true;
-	   //enter url of script here
-	   cly.src = 'https://cdnjs.cloudflare.com/ajax/libs/countly-sdk-web/20.4.0/countly.min.js';
-	   cly.onload = function(){Countly.init()};
-	   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(cly, s);
-	})();
-	</script>
-	<script defer id="plausible" data-domain="bootstrap-lightbox.jbutz.github.io,jbutz.github.io" src="https://plausible.io/js/script.outbound-links.file-downloads.compat.js"></script>
+	<script defer id="plausible" data-domain="jbutz.github.io" src="https://plausible.io/js/script.outbound-links.file-downloads.compat.js"></script>
 </head>
 <body data-spy="scroll" data-target=".navbar">
 	<div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
